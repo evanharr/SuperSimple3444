@@ -1,9 +1,23 @@
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import React from 'react';
+import Modal from './Modal'
 import './login.css'
 
-class login extends React.Component
+
+const BUTTON_WRAPPER_STYLES = {
+  position: 'relative',
+  zIndex: 1
+}
+
+const OTHER_CONTENT_STYLES = {
+  position: 'relative',
+  zIndex: 2,
+  backgroundColor: 'red',
+  padding: '10px'
+}
+
+class Login extends React.Component
 {
   constructor()
   {
@@ -39,12 +53,12 @@ class login extends React.Component
 
 
 function App() {
-  const loginInstance = new login();
+  const [isOpen, setIsOpen] = useState(false);
   return(
   <div>
     Main page
     <Button variant="contained" className='OpenLogin'>Login</Button>
-    {loginInstance.render()}
+    <Login />
   </div>
   )
 }
