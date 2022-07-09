@@ -1,15 +1,12 @@
-import {React, useState} from 'react';
-import Button from '@mui/material/Button';
-import Modal from './Modal'
-import Login from './Login'
-
+import {React,} from 'react';
+import Background from './Images/Background.png'
 
 function Home(){
    
     return(
     
-    <div>
- HELLO
+    <div style={{background: `url(${Background})`, height: '90vh', backgroundSize:'cover'}}>
+        
     </div>
     )
 }
