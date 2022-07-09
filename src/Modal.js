@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { whileStatement } from '@babel/types';
 
 //Puts component in center
 const MODAL_STYLES = {
@@ -28,7 +29,8 @@ const OVERLAY_STYLES = {
 const CLOSE_STYLE = {
     position: 'absolute',
     top: 0,
-    left: 0
+    left: 0,
+    color: 'white',
 }
 
 export default function Modal({ open, children, onClose }) {
