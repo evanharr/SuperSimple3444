@@ -28,7 +28,8 @@ const OVERLAY_STYLES = {
 const CLOSE_STYLE = {
     position: 'absolute',
     top: 0,
-    left: 0
+    left: 0, 
+    color: 'white'
 }
 
 export default function Modal({ open, children, onClose }) {

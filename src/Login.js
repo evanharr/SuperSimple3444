@@ -1,11 +1,13 @@
 import React from 'react';
+import './login.css'
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
-import { spacing } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import './login.css'
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const defaultButton = createTheme({
   
@@ -16,8 +18,9 @@ const defaultButton = createTheme({
   },
 });
 
+//Sets textfield to white
 const StyledTextField = styled(TextField)({
-  maxLength: 100,
+  width:400,
   margin: 10,
   align:'center',
 
@@ -51,7 +54,6 @@ const StyledTextField = styled(TextField)({
 });
 
 
-
 export default class Login extends React.Component
 {
   constructor()
@@ -71,7 +73,6 @@ export default class Login extends React.Component
     return(
       <Box textAlign='center' sx={{
         display: 'flex',
-        alignItems: 'flex-start',
         flexDirection: 'column',
         alignItems:"center"}}>
         <h1 className='loginText'>Login</h1>
@@ -80,13 +81,13 @@ export default class Login extends React.Component
         <StyledTextField className='loginText' id="password-form"  label="Password" type="password" ></StyledTextField>
 
         <ThemeProvider theme={defaultButton}>
-          <Button  sx={{ width: 300 }} variant="contained" onClick={this.CollectInfo}>
+          <Button  sx={{ width: 400 }} variant="contained" onClick={this.CollectInfo}>
             Login
           </Button>
         </ThemeProvider>
 
         {/*Add link to <a> tag that goes to create account*/}
-        <a className='loginText' href="https://www.youtube.com/">New User? Click Here to Create Account.</a>
+        <a className='websiteText' href="https://www.youtube.com/">New User? Click Here to Create Account.</a>
       </Box>
     )
   }
