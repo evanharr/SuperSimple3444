@@ -26,7 +26,7 @@ function Account(){
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: 600,
-                height: 832,
+                maxHeight: 832,
                 backgroundColor: '#424242',
             }}
         >
@@ -43,26 +43,26 @@ function Account(){
                 </Grid>
                 
                 
-                <Grid paddingTop='20px'>
-                    <Paper sx={{p: '15px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                        <Typography>Name:</Typography>
-                        <Typography>Person's Name <Button variant='contained' color='success'>Edit</Button></Typography> 
+                <Grid paddingTop='010px'>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
+                        
+                        <Grid container direction ='column'><Typography>Name:</Typography><Typography>Person's Name</Typography><Button variant='contained' color='success' style={{alignItems:'flex-end'}}>Edit</Button></Grid>
                     </Paper>
-                    <Paper sx={{p: '15px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                       <Typography>Email Address:</Typography>
-                       <Typography>person@emailaddress.com<Button variant='contained' color='success'>Edit</Button></Typography>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined">
+                       
+                       <Grid container direction ='column'><Typography>Email Address:</Typography><Grid item><Typography>person@emailaddress.com</Typography></Grid><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button></Grid>
                     </Paper>
-                    <Paper sx={{p: '15px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
                        <Typography>Address:</Typography>
-                       <Typography>444 Address road, Address City, TX<Button variant='contained' color='success'>Edit</Button></Typography>
+                       <Grid container direction ='column'> <Typography>444 Address road, Address City, TX</Typography><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button></Grid>
                     </Paper>
-                    <Paper sx={{p: '15px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                       <Typography>Date of Birth:</Typography>
-                       <Typography>1/1/2001<Button variant='contained' color='success'>Edit</Button></Typography>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
+                       <Grid container direction ='column'> <Typography>Date of Birth:</Typography><Typography>1/1/2001</Typography><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button> </Grid>
                     </Paper>
-                    <Paper sx={{p: '15px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
+                    <Grid container direction ='column'>
                        <Typography>Password:</Typography>
-                       <Typography>******<Button variant='contained' color='success'>Edit</Button></Typography>
+                       <Typography>******</Typography><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button></Grid>
                     </Paper>
                 </Grid>
                 <Grid item paddingTop='20px'>
