@@ -11,8 +11,24 @@
     display:block;
 }
 
-.loginHeader{
+.loginText{
+    bottom: 20px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    color:white
+    color:white;
 }
+
+.websiteText{
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    display: block;
+}
+
+.websiteMain{
+    background-color: #211D1D;
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    display: block;
+    margin: 10px 10px 10px 10px;   
+}
+

@@ -11,7 +11,7 @@ const MODAL_STYLES = {
   transform: 'translate(-50%, -50%)',
   backgroundColor: '#30303070',
   padding: '120px',
-  zIndex: 1000
+  zIndex: 1000,
 }
 
 //Makes everything that can't be clicked grey
