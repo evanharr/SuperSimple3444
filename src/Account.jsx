@@ -30,7 +30,7 @@ function Account(){
                 backgroundColor: '#424242',
             }}
         >
-            <Link to="/"><ArrowBackIcon /></Link>
+            <Link to="/" style={{color: 'white'}}><ArrowBackIcon /></Link>
             
             <Grid container
                 direction ='column'
