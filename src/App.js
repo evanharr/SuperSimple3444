@@ -1,25 +1,19 @@
-import React, { useState } from 'react'
-import Button from '@mui/material/Button';
 
-import Modal from './Modal'
-import Login from './Login'
+import React from 'react'
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Account from './Account'
+import Home from './Home'
 
 
 function App() {
-  const [loginOpen, setLoginOpen] = useState(false);
-  const [OtherOpen, setOtherOpen] = useState(false);
   return(
   <div>
-    Main page
-    <Button variant="contained" className='OpenLogin' onClick={() => setLoginOpen(true)}>
-    Login
-    </Button>
-    <Button variant="contained" className='OpenOther' onClick={() => setOtherOpen(true)}>
-    Other
-    </Button>
-    
-    <Modal open={loginOpen} onClose={() => setLoginOpen(false)}><Login /></Modal>
-    <Modal open={OtherOpen} onClose={() => setOtherOpen(false)}>Test</Modal>
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element ={<Home />}></Route>
+          <Route path="/account-info" element={<Account />}></Route>
+      </Routes>
+    </BrowserRouter>
   </div>
   )
 }
