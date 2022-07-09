@@ -7,12 +7,9 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import { styled } from '@mui/material/styles'
-import { AppBar } from "@mui/material";
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import CarIcon from './Logos/carIcon.jsx'
+import { Link } from 'react-router-dom'
+
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 
@@ -33,6 +30,8 @@ function Account(){
                 backgroundColor: '#424242',
             }}
         >
+            <Link to="/"><ArrowBackIcon /></Link>
+            
             <Grid container
                 direction ='column'
                 justifyContent='center'
