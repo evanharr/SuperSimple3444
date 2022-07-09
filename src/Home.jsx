@@ -10,6 +10,7 @@ function Home(){
     return(
     
     <div>
+        <body>
     Main page
     <Button variant="contained" className='OpenLogin' onClick={() => setLoginOpen(true)}>
     Login
@@ -20,6 +21,7 @@ function Home(){
     
     <Modal open={loginOpen} onClose={() => setLoginOpen(false)}><Login /></Modal>
     <Modal open={OtherOpen} onClose={() => setOtherOpen(false)}>Test</Modal>
+    </body>
     </div>
     )
 }

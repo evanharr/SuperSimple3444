@@ -1,0 +1,9 @@
+import React from "react";
+import carIconLogo from './carIconLogo.svg'
+
+function carIcon(){
+    return(
+        <img src={carIconLogo} width='60px' height='47px'/>
+    )
+}
+export default carIcon
