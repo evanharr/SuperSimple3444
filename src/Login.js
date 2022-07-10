@@ -1,25 +1,13 @@
 import React from 'react';
-import './login.css'
+import './Styles/login.css'
+import { defaultButton } from './Styles/MUIStyle.js'
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { styled } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { IconButton, InputAdornment, Box, Button, TextField } from '@mui/material';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const defaultButton = createTheme({
-  
-  palette: {
-    primary: {
-        main:'#00853E',
-    },
-  },
-});
+
 
 //Sets textfield to white
 const StyledTextField = styled(TextField)({
