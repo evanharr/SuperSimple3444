@@ -6,6 +6,7 @@ import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import Modal from '../Modal'
 import Login from '../Login'
+import Vehicles from '../Vehicles'
 
 
 function NavBar(){
@@ -16,7 +17,7 @@ const [loginOpen, setLoginOpen] = useState(false);
 
        <Toolbar>
         <CarIcon  />
-        <Button style={{color:'white'}}>Vehicles</Button>
+        <Button style={{color:'white'}}><Link style={{color: 'white'}} to="/vehicle-page">Vehicles</Link></Button>
         <Button style={{color:'white'}}><Link style={{color: 'white'}} to="/account-info">Account</Link></Button>
         <Button style={{color:'white'}}>Cart</Button>
         <Button style={{color:'white', left: 1500}} className='OpenLogin' onClick={() => setLoginOpen(true)}> Log in </Button>
