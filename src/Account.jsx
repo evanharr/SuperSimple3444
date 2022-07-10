@@ -46,13 +46,13 @@ function Account(){
                 
                 <Grid paddingTop='010px'>
                     <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={10} alignItems='center'>
-                            <p justifyContent='right'>Name: <br></br>Person's Name</p>
+                           <Stack direction="row" spacing={27.5} alignItems='center' justifyContent='flex-start'>
+                            <p>Name: <br></br>Person's Name</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
                     </Paper>
                     <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                           <Stack direction="row" spacing={17.5} alignItems='center'justifyContent='flex-start'>
                             <p>Email Address:<br></br>person@emailaddress.com</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
@@ -64,13 +64,13 @@ function Account(){
                             </Stack> 
                     </Paper>
                     <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                           <Stack direction="row" spacing={28.5} alignItems='center'justifyContent='flex-start'>
                             <p>Date of Birth<br></br>1/1/2001</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
                     </Paper>
                     <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                           <Stack direction="row" spacing={31} alignItems='center'justifyContent='flex-start'>
                             <p>Password:<br></br>******</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
