@@ -5,7 +5,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TrimPic from './Images/Trim.png'
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
+
+
+
 
 function Cart (){
     return(
@@ -100,7 +103,7 @@ function Cart (){
                 alignItems:'center',
                 
             }} >
-                <Button variant ='contained' style={{background:'#00853E', color:'white' }}>Checkout</Button>
+                <Button variant ='contained' style={{background:'#00853E', color:'white' }} href='/checkout'>Checkout</Button>
                </Accordion>
         </div>
     )
