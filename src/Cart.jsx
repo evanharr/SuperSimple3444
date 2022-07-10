@@ -5,6 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TrimPic from './Images/Trim.png'
+import { Button } from "@mui/material";
 
 function Cart (){
     return(
@@ -15,7 +16,7 @@ function Cart (){
         transform: 'translate(-50%, -50%)',}}>
            <Accordion sx={{
                 maxWidth:'600px',
-                
+                height:'50px',
                 display:'flex',
                 justifyContent:'center',
                 alignItems:'center',
@@ -23,9 +24,9 @@ function Cart (){
                 backgroundColor: '#303030',
 
             }} variant='outlined'>
-                <AccordionSummary>
+              
                     <Typography style={{color:'white'}}>Car Example</Typography>
-                </AccordionSummary>
+               
            
                 </Accordion> 
             <Accordion sx={{
@@ -80,17 +81,27 @@ function Cart (){
             </Accordion>
             <Accordion sx={{
                 maxWidth:'600px',
+                height:'50px',
                 backgroundColor: '#303030',
                 display:'flex',
-                justifyContent:'left',
-                alignItems:'left',
+                justifyContent:'center',
+                alignItems:'center',
                 alignText:'center',
             }} >
-                <AccordionSummary>
-                <Typography style={{color:'white'}}>Total Price(MSRP): </Typography> <Typography style={{paddingLeft:'360px',color:'white'}}>$100,000</Typography>
-                </AccordionSummary>
                 
+                <Typography style={{color:'white'}}>Total Price(MSRP): $100,000</Typography>
                 </Accordion> 
+                <Accordion sx={{
+                height:'50px',
+                maxWidth:'600px',
+                backgroundColor: '#303030',
+                display:'flex',
+                justifyContent:'center',
+                alignItems:'center',
+                
+            }} >
+                <Button variant ='contained' style={{background:'#00853E', color:'white' }}>Checkout</Button>
+               </Accordion>
         </div>
     )
 }
