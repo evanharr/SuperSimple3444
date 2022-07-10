@@ -10,7 +10,7 @@ const MODAL_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: '#30303070',
+  backgroundColor: 'rgba(30, 30, 30, .97)',
   padding: '120px',
   zIndex: 1000,
 }
@@ -22,15 +22,14 @@ const OVERLAY_STYLES = {
   left: 0,
   right: 0,
   bottom: 0,
-  zIndex: 1000
+  zIndex: 1000,
+  backgroundColor: 'rgba(0, 0, 0, .3)'
 }
 
 //Puts the X in the corner
 const CLOSE_STYLE = {
     position: 'absolute',
     top: 0,
-    left: 0, 
-    color: 'white',
     left: 0,
     color: 'white',
 }
