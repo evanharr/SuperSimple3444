@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { AppBar, Typography } from "@mui/material";
+import { AppBar} from "@mui/material";
 import Toolbar from '@mui/material/Toolbar';
 import CarIcon from '../Images/carIcon.jsx'
 import Button from '@mui/material/Button'
@@ -18,7 +18,7 @@ const [loginOpen, setLoginOpen] = useState(false);
         <CarIcon  />
         <Button style={{color:'white'}}>Vehicles</Button>
         <Button style={{color:'white'}}><Link style={{color: 'white'}} to="/account-info">Account</Link></Button>
-        <Button style={{color:'white'}}>Cart</Button>
+        <Button style={{color:'white'}}><Link style={{color: 'white'}} to='/cart'>Cart</Link></Button>
         <Button style={{color:'white', left: 1500}} className='OpenLogin' onClick={() => setLoginOpen(true)}> Log in </Button>
         </Toolbar>
         <Modal open={loginOpen} onClose={() => setLoginOpen(false)}><Login /></Modal>
