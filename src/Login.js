@@ -1,49 +1,11 @@
 import React from 'react';
 import './Styles/login.css'
-import { defaultButton } from './Styles/MUIStyle.js'
+import { defaultButton, StyledTextField } from './Styles/MUIStyle.js'
 
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { IconButton, InputAdornment, Box, Button, TextField } from '@mui/material';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
-
-
-//Sets textfield to white
-const StyledTextField = styled(TextField)({
-  width:400,
-  margin: 10,
-  align:'center',
-
-  input:{
-    color:"white"
-  },
-  "& label": {
-    color: "white"
-  },
-  "&:hover label": {
-    fontWeight: 700
-  },
-  "& label.Mui-focused": {
-    color: "white"
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "white"
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "white"
-    },
-    "&:hover fieldset": {
-      borderColor: "white",
-      borderWidth: 2
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "white"
-    }
-  }
-});
-
 
 export default class Login extends React.Component
 {

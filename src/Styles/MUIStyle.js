@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
 //Taken from Login.js
@@ -15,6 +15,11 @@ const defaultButton = createTheme({
   });
 
 export {defaultButton};
+
+export const BoldButton = styled(Button)({
+  fontWeight: '600',
+  fontFamily: 'Roboto, sans-serif'
+})
 
 //Sets textfield to white
 export const StyledTextField = styled(TextField)({
