@@ -8,6 +8,7 @@ import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import { Link } from 'react-router-dom'
+import Stack from '@mui/material/Stack';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -44,26 +45,37 @@ function Account(){
                 
                 
                 <Grid paddingTop='010px'>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                        
-                        <Grid container direction ='column'><Typography>Name:</Typography><Typography>Person's Name</Typography><Button variant='contained' color='success' style={{alignItems:'flex-end'}}>Edit</Button></Grid>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} elevation={3}>
+                           <Stack direction="row" spacing={10} alignItems='center'>
+                            <p justifyContent='right'>Name: <br></br>Person's Name</p>
+                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
+                            </Stack> 
                     </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined">
-                       
-                       <Grid container direction ='column'><Typography>Email Address:</Typography><Grid item><Typography>person@emailaddress.com</Typography></Grid><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button></Grid>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} elevation={4}>
+                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                            <p>Email Address:<br></br>person@emailaddress.com</p>
+                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
+                            </Stack> 
                     </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                       <Typography>Address:</Typography>
-                       <Grid container direction ='column'> <Typography>444 Address road, Address City, TX</Typography><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button></Grid>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} elevation={3}>
+                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                            <p>Address<br></br>444 Address road, Address City, TX</p>
+                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
+                            </Stack> 
                     </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                       <Grid container direction ='column'> <Typography>Date of Birth:</Typography><Typography>1/1/2001</Typography><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button> </Grid>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} elevation={3}>
+                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                            <p>Date of Birth<br></br>1/1/2001</p>
+                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
+                            </Stack> 
                     </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant="outlined" display='flex'>
-                    <Grid container direction ='column'>
-                       <Typography>Password:</Typography>
-                       <Typography>******</Typography><Button variant='contained' color='success'style={{alignItems:'flex-end'}}>Edit</Button></Grid>
+                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} elevation={3}>
+                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
+                            <p>Password:<br></br>******</p>
+                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
+                            </Stack> 
                     </Paper>
+                    
                 </Grid>
                 <Grid item paddingTop='20px'>
                    <Typography variant="h4" color='white'>Payment Information</Typography>
