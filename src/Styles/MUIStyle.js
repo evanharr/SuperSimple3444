@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { createTheme, ThemeProvider, styled, withTheme } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
@@ -26,18 +26,19 @@ export const StyledTextField = styled(TextField)({
     width:400,
     margin: 10,
     align:'center',
+    background:'white',
   
     input:{
-      color:"white"
+      color:"black"
     },
     "& label": {
-      color: "white"
+      color: "black"
     },
     "&:hover label": {
       fontWeight: 700
     },
     "& label.Mui-focused": {
-      color: "white"
+      color: "black"
     },
     "& .MuiInput-underline:after": {
       borderBottomColor: "white"

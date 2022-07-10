@@ -35,14 +35,14 @@ export default class Login extends React.Component
         alignItems:"center"}}>
         <h1 className='loginText'>Login</h1>
         
-        <StyledTextField className='loginText' id="email-form"   label="Email" ></StyledTextField>
-        <StyledTextField className='loginText' id="password-form"  label="Password"
+        <StyledTextField className='loginText' id="email-form"   label="Email" variant="filled"></StyledTextField>
+        <StyledTextField className='loginText' id="password-form"  label="Password" variant="filled"
         type={this.state.showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               <IconButton
-                sx={{color: 'white'}}
+                sx={{color: 'black'}}
                 aria-label="toggle password visibility"
                 onClick={this.handleClickShowPassword}
               >
