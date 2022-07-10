@@ -13,7 +13,7 @@ function NavBar(){
 
 const [loginOpen, setLoginOpen] = useState(false);
     return(
-<AppBar position ='static' style={{backgroundColor:'#211D1D'}}>
+<AppBar position ='static' style={{backgroundColor:'#211D1D'}} >
 
        <Toolbar>
         <CarIcon  />
