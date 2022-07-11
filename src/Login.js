@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styles/login.css'
+import './Styles/style.css'
 import { defaultButton, StyledTextField } from './Styles/MUIStyle.js'
 
 import { ThemeProvider } from '@mui/material/styles';

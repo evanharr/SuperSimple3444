@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Grid, Paper } from '@mui/material';
-import './Styles/login.css'
+import './Styles/style.css'
 import { defaultButton, BoldButton } from './Styles/MUIStyle.js'
 import { ThemeProvider } from '@mui/material/styles';
 

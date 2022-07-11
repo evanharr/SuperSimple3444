@@ -17,8 +17,10 @@ const defaultButton = createTheme({
 export {defaultButton};
 
 export const BoldButton = styled(Button)({
-  fontWeight: '600',
-  fontFamily: 'Roboto, sans-serif'
+  fontWeight: 'medium',
+  fontFamily: 'Roboto, sans-serif',
+  fontSize: 17.5,
+  textTransform: 'none'
 })
 
 //Sets textfield to white
