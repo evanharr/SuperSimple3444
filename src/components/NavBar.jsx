@@ -3,10 +3,10 @@ import { AppBar} from "@mui/material";
 import Toolbar from '@mui/material/Toolbar';
 import CarIcon from '../Images/carIcon.jsx'
 import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
 import { Link } from 'react-router-dom'
 import Modal from '../Modal'
 import Login from '../Login'
-import Vehicles from '../Vehicles'
 
 
 function NavBar(){
@@ -16,7 +16,7 @@ const [loginOpen, setLoginOpen] = useState(false);
 <AppBar position ='static' style={{backgroundColor:'#211D1D'}} >
 
        <Toolbar>
-        <CarIcon  />
+        <IconButton style={{color:'white'}}><Link style={{color: 'white'}} to="/"><CarIcon  /></Link></IconButton>
         <Button style={{color:'white'}}><Link style={{color: 'white'}} to="/vehicle-page">Vehicles</Link></Button>
         <Button style={{color:'white'}}><Link style={{color: 'white'}} to="/account-info">Account</Link></Button>
         <Button style={{color:'white'}}><Link style={{color: 'white'}} to='/cart'>Cart</Link></Button>
