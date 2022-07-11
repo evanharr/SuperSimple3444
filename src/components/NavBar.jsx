@@ -17,7 +17,7 @@ const [loginOpen, setLoginOpen] = useState(false);
 <AppBar position ='static' style={{backgroundColor:'#211D1D'}} >
 
        <Toolbar>
-        <IconButton><Link style={{color: 'white'}} to="/"><CarIcon  /></Link></IconButton>
+        <IconButton><Link style={{color: 'white'}} to="/SuperSimple3444"><CarIcon  /></Link></IconButton>
         <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to="/vehicle-page">Vehicles</Link></BoldButton>
         <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to="/account-info">Account</Link></BoldButton>
         <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to='/cart'>Cart</Link></BoldButton>

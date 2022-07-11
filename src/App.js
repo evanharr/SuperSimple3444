@@ -15,11 +15,12 @@ function App() {
     <BrowserRouter>
     <NavBar />
       <Routes>
-          <Route path='/' element ={<Home />}></Route>
+          <Route path='/SuperSimple3444' element ={<Home />}></Route>
           <Route path="/account-info" element={<Account />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/vehicle-page" element={<Vehicles />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
+          
       </Routes>
     </BrowserRouter>
   </div>
