@@ -18,10 +18,10 @@ const [registerOpen, setRegisterOpen] = useState(false);
 <AppBar position ='static' style={{backgroundColor:'#211D1D'}} >
 
        <Toolbar>
-        <IconButton><Link style={{color: 'white'}} to="/SuperSimple3444"><CarIcon  /></Link></IconButton>
-        <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to="/vehicle-page">Vehicles</Link></BoldButton>
-        <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to="/account-info">Account</Link></BoldButton>
-        <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to='/cart'>Cart</Link></BoldButton>
+       <Link style={{color: 'white'}} to="/SuperSimple3444"><IconButton><CarIcon  /></IconButton></Link>
+        <Link style={{color: 'white'}} to="/vehicle-page"><BoldButton style={{color:'white'}}>Vehicles</BoldButton></Link>
+        <Link style={{color: 'white'}} to="/account-info"><BoldButton style={{color:'white'}}>Account</BoldButton></Link>
+        <Link style={{color: 'white'}} to='/cart'><BoldButton style={{color:'white'}}>Cart</BoldButton></Link>
         <BoldButton style={{color:'white', left: 1500}} className='OpenLogin' onClick={() => setLoginOpen(true)}> Log in </BoldButton>
         <BoldButton style={{color:'white', left: 1500}} className='openRegister' onClick={() => setRegisterOpen(true)}> Register </BoldButton>
         </Toolbar>
