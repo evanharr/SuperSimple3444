@@ -31,7 +31,7 @@ function Account(){
                 backgroundColor: '#424242',
             }}
         >
-            <Link to="/" style={{color: 'white'}}><ArrowBackIcon /></Link>
+            <Link to="/SuperSimple3444" style={{color: 'white'}}><ArrowBackIcon /></Link>
             
             <Grid container
                 direction ='column'
