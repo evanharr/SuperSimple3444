@@ -8,11 +8,12 @@ import { Link } from 'react-router-dom'
 import { BoldButton } from '../Styles/MUIStyle.js'
 import Modal from '../Modal'
 import Login from '../Login'
-
+import Register from '../register'
 
 function NavBar(){
 
 const [loginOpen, setLoginOpen] = useState(false);
+const [registerOpen, setRegisterOpen] = useState(false);
     return(
 <AppBar position ='static' style={{backgroundColor:'#211D1D'}} >
 
@@ -22,8 +23,10 @@ const [loginOpen, setLoginOpen] = useState(false);
         <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to="/account-info">Account</Link></BoldButton>
         <BoldButton style={{color:'white'}}><Link style={{color: 'white'}} to='/cart'>Cart</Link></BoldButton>
         <BoldButton style={{color:'white', left: 1500}} className='OpenLogin' onClick={() => setLoginOpen(true)}> Log in </BoldButton>
+        <BoldButton style={{color:'white', left: 1500}} className='openRegister' onClick={() => setRegisterOpen(true)}> Register </BoldButton>
         </Toolbar>
         <Modal open={loginOpen} onClose={() => setLoginOpen(false)}><Login /></Modal>
+        <Modal open={registerOpen} onClose={() => setRegisterOpen(false)}><Register /></Modal>
 </AppBar>
 
     )
