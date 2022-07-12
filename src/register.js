@@ -144,12 +144,12 @@ export default class register extends React.Component
         alignItems:"center"}}>
         <h1 className='registerInfo'>Register</h1>
         
-        <StyledTextField className='registerInfo' id="firstName"   label="First Name" variant="filled" value = {this.state.firstName}  onChange = {(e) => this.handleName(e)}  ></StyledTextField>
-        <StyledTextField className='registerInfo' id="lastName"   label="Last Name" variant="filled" value = {this.state.lastName} ></StyledTextField>
-        <StyledTextField className='registerInfo' id="DOB"   label="Date of Birth" variant="filled" value = {this.state.DOB} ></StyledTextField>
+        <StyledTextField className='registerInfo' id="firstName"   label="First Name" variant="filled" value = {this.state.firstName}  onChange = {(e) => this.setState({firstName: e.target.value})}  ></StyledTextField>
+        <StyledTextField className='registerInfo' id="lastName"   label="Last Name" variant="filled" value = {this.state.lastName} onChange = {(e) => this.setState({lastName: e.target.value})}></StyledTextField>
+        <StyledTextField className='registerInfo' id="DOB"   label="Date of Birth" variant="filled" value = {this.state.DOB} onChange = {(e) => this.setState({DOB: e.target.value})}></StyledTextField>
 
-        <StyledTextField className='loginText' id="email-form"   label="Email" variant="filled" value = {this.state.email} ></StyledTextField>
-        <StyledTextField className='loginText' id="password-form"  label="Password" variant="filled" value = {this.state.password} 
+        <StyledTextField className='loginText' id="email-form"   label="Email" variant="filled" value = {this.state.email} onChange = {(e) => this.setState({email: e.target.value})}></StyledTextField>
+        <StyledTextField className='loginText' id="password-form"  label="Password" variant="filled" value = {this.state.password} onChange = {(e) => this.setState({password: e.target.value})}
         type={this.state.showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
