@@ -45,7 +45,7 @@ export default class Login extends React.Component
   {
       super();
       this.state = {email: '', password: '', showPassword: false}
-      this.handleClickShowPassword = this.handleClickShowPassword.bind(this);
+      this.setShowPassword = this.setShowPassword.bind(this);
       this.CollectInfo = this.CollectInfo.bind(this);
   }
 
@@ -81,8 +81,10 @@ export default class Login extends React.Component
  });
   }
 
-  handleClickShowPassword = () =>{
-    this.setState({ showPassword: !this.state.showPassword })
+  setShowPassword = () =>{
+    if(this.state.showPassword!=null){
+      this.setState({ showPassword: !this.state.showPassword })
+    }
   }
 
   render()
@@ -103,7 +105,7 @@ export default class Login extends React.Component
               <IconButton
                 sx={{color: 'black'}}
                 aria-label="toggle password visibility"
-                onClick={this.handleClickShowPassword}
+                onClick={this.setShowPassword}
               >
                 {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
               </IconButton>
