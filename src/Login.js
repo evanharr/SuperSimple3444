@@ -7,19 +7,78 @@ import { IconButton, InputAdornment, Box, Button, TextField } from '@mui/materia
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
+// Import the functions you need from the SDKs you need
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAjpB2JZEWDNsZVX8QRWMuTiO-tQA31zxU",
+    authDomain: "csce3444-5f9a0.firebaseapp.com",
+    projectId: "csce3444-5f9a0",
+    storageBucket: "csce3444-5f9a0.appspot.com",
+    messagingSenderId: "261798731661",
+    appId: "1:261798731661:web:310ea302cdb3700cbe27c4",
+    measurementId: "G-XSBN3ZKG54",
+    databaseURL: "https://csce3444-5f9a0-default-rtdb.firebaseio.com"
+
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const database = getDatabase(app);
+
 export default class Login extends React.Component
 {
   constructor()
   {
       super();
-      this.state = {email: '', pass: '', showPassword: false}
+      this.state = {email: '', password: '', showPassword: false}
       this.handleClickShowPassword = this.handleClickShowPassword.bind(this);
+      this.CollectInfo = this.CollectInfo.bind(this);
   }
 
   //Runs events that occur after button is pressed
   CollectInfo()
   {
-    console.log('log');
+    signInWithEmailAndPassword(auth, this.state.email, this.state.password)
+
+ .then((userCredential) => {
+     // Signed in
+     const user = userCredential.user;
+     // ...
+
+     // save log in details into real time database
+     var lgDate = new Date();
+     update(ref(database, 'users/' + user.uid), {
+         last_login: lgDate,
+     })
+         .then(() => {
+             // Data saved successfully!
+             alert('user logged in successfully');
+
+         })
+         .catch((error) => {
+             // The write failed...
+             alert(error);
+         });
+ })
+ .catch((error) => {
+     const errorCode = error.code;
+     const errorMessage = error.message;
+     alert(errorMessage);
+ });
   }
 
   handleClickShowPassword = () =>{
@@ -35,8 +94,8 @@ export default class Login extends React.Component
         alignItems:"center"}}>
         <h1 className='loginText'>Login</h1>
         
-        <StyledTextField className='loginText' id="email-form"   label="Email" variant="filled"></StyledTextField>
-        <StyledTextField className='loginText' id="password-form"  label="Password" variant="filled"
+        <StyledTextField className='loginText' id="email-form"   label="Email" variant="filled"  value = {this.state.email} onChange = {(e) => this.setState({email: e.target.value})}></StyledTextField>
+        <StyledTextField className='loginText' id="password-form"  label="Password" variant="filled" value = {this.state.password} onChange = {(e) => this.setState({password: e.target.value})}
         type={this.state.showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
