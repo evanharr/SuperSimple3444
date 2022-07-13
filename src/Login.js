@@ -8,14 +8,14 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 // Import the functions you need from the SDKs you need
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import {initializeApp} from "firebase/app";
 import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
-import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+} from "firebase/auth";
+import {getDatabase, set, ref, update} from "firebase/database";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
