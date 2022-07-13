@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Button, Grid, Paper } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import './Styles/style.css'
-import { defaultButton, BoldButton } from './Styles/MUIStyle.js'
-import { ThemeProvider } from '@mui/material/styles';
+import { BoldButton, VehicleButton } from './Styles/MUIStyle.js'
+import TrimPic from './Images/Trim.png'
 
 
 export default function Vehicles(){
@@ -16,22 +16,42 @@ export default function Vehicles(){
                 <BoldButton style={{color:'white'}} className='boldText' size="large">CROSSOVERS</BoldButton>
         </Grid>
 
+        <h1 className='boldText' style={{margin:'10px 10px 10px 50px'}}>SEDANS</h1>
+
         <Grid container 
         justifyContent="center"
         alignItems="center" 
+        justify="center"
         spacing={10}
+        style={{padding:50}}
         >
-          <Grid item  Paper xs={4}>
-            <Paper>1</Paper>
+          <Grid item xs={4}>
+            <VehicleButton sx={{ display: 'grid' }}> 
+              <img src={TrimPic}></img>
+              <p>Car Example</p>
+              <p> $100,000 Starting MSRP*</p>
+            </VehicleButton>
           </Grid>
-          <Grid item  Paper xs={4}>
-            <Paper>2</Paper>
+          <Grid item xs={4}>
+            <VehicleButton sx={{ display: 'grid' }}> 
+              <img src={TrimPic}></img>
+              <p>Car Example</p>
+              <p> $100,000 Starting MSRP*</p>
+            </VehicleButton>
           </Grid>
-          <Grid item Paper xs={4}>
-            <Paper>3</Paper>
+          <Grid item xs={4}>
+            <VehicleButton sx={{ display: 'grid' }}> 
+              <img src={TrimPic}></img>
+              <p>Car Example</p>
+              <p> $100,000 Starting MSRP*</p>
+            </VehicleButton>
           </Grid>
-          <Grid item Paper xs={4}>
-            <Paper>4</Paper>
+          <Grid item xs={4}>
+            <VehicleButton sx={{ display: 'grid' }}> 
+              <img src={TrimPic}></img>
+              <p>Car Example</p>
+              <p> $100,000 Starting MSRP*</p>
+            </VehicleButton>
           </Grid>
         </Grid>
         </Box>

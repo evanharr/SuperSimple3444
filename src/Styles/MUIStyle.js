@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider, styled, withTheme } from '@mui/material/styles';
+import { createTheme, styled } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
@@ -23,12 +23,22 @@ export const BoldButton = styled(Button)({
   textTransform: 'none'
 })
 
+export const VehicleButton = styled(Button)({
+  fontWeight: 'medium',
+  fontFamily: 'Roboto, sans-serif',
+  fontSize: 17.5,
+  textTransform: 'none',
+  color:'white', 
+  justifyItems:'left', 
+  backgroundColor: '#303030'
+})
+
 //Sets textfield to white
 export const StyledTextField = styled(TextField)({
-    width:400,
-    margin: 10,
     align:'center',
     background:'white',
+    margin: 10,  
+    width:400,
   
     input:{
       color:"black"
