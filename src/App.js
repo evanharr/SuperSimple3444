@@ -7,6 +7,7 @@ import Vehicles from './Vehicles';
 import NavBar from './components/NavBar'
 import Cart from './Cart'
 import Checkout from './Checkout'
+import CarConfig from './CarConfig'
 
 
 function App() {
@@ -15,11 +16,12 @@ function App() {
     <BrowserRouter>
     <NavBar />
       <Routes>
-          <Route path='/SuperSimple3444' element ={<Home />}></Route>
+          <Route path="/SuperSimple3444" element ={<Home />}></Route>
           <Route path="/account-info" element={<Account />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/vehicle-page" element={<Vehicles />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
+          <Route path="/car-configuration" element={<CarConfig />}></Route>
           
       </Routes>
     </BrowserRouter>
