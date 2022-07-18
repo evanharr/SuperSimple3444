@@ -5,6 +5,19 @@ import {VehicleButton } from './Styles/MUIStyle.js'
 import TrimPic from './Images/Trim.png'
 import { Link } from 'react-router-dom'
 
+//Returns entry for each vehicle that goes on page
+function VehicleEntry()
+{
+  return(
+    <Link style={{color: 'white'}} to="/car-configuration">
+      <VehicleButton sx={{ display: 'grid' }}> 
+        <img src={TrimPic}></img>
+        <p>Car Example</p>
+        <p> $100,000 Starting MSRP*</p>
+      </VehicleButton>
+    </Link>
+  )
+}
 
 export default function Vehicles(){
     return(
@@ -25,34 +38,16 @@ export default function Vehicles(){
         style={{padding:50}}
         >
           <Grid item xs={4}>
-          <Link style={{color: 'white'}} to="/car-configuration">
-            <VehicleButton sx={{ display: 'grid' }}> 
-              <img src={TrimPic}></img>
-              <p>Car Example</p>
-              <p> $100,000 Starting MSRP*</p>
-            </VehicleButton>
-            </Link>
+            <VehicleEntry/>
           </Grid>
           <Grid item xs={4}>
-            <VehicleButton sx={{ display: 'grid' }}> 
-              <img src={TrimPic}></img>
-              <p>Car Example</p>
-              <p> $100,000 Starting MSRP*</p>
-            </VehicleButton>
+            <VehicleEntry/>
           </Grid>
           <Grid item xs={4}>
-            <VehicleButton sx={{ display: 'grid' }}> 
-              <img src={TrimPic}></img>
-              <p>Car Example</p>
-              <p> $100,000 Starting MSRP*</p>
-            </VehicleButton>
+            <VehicleEntry/>
           </Grid>
           <Grid item xs={4}>
-            <VehicleButton sx={{ display: 'grid' }}> 
-              <img src={TrimPic}></img>
-              <p>Car Example</p>
-              <p> $100,000 Starting MSRP*</p>
-            </VehicleButton>
+            <VehicleEntry/>
           </Grid>
         </Grid>
         </Box>
