@@ -1,5 +1,5 @@
 import { createTheme, styled } from '@mui/material/styles';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Tab } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
 //Taken from Login.js
@@ -31,6 +31,13 @@ export const VehicleButton = styled(Button)({
   color:'white', 
   justifyItems:'left', 
   backgroundColor: '#303030'
+})
+
+export const BoldTab = styled(Tab)({
+  fontWeight: 'medium',
+  fontFamily: 'Roboto, sans-serif',
+  fontSize: 17.5,
+  textTransform: 'none'
 })
 
 //Sets textfield to white
