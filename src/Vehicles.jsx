@@ -9,13 +9,16 @@ import { Link } from 'react-router-dom'
 //Returns entry for each vehicle that goes on page
 function VehicleEntry()
 {
+  var name = "Car Example";
+  var price = "$100,000"
+
   return(
     <Grid item xs="auto">
     <Link style={{color: 'white'}} to="/car-configuration">
-      <VehicleButton sx={{ display: 'grid' }}> 
+      <VehicleButton sx={{ display: 'grid'}} > 
         <img src={TrimPic} alt="Car button"></img>
         <p>Car Example</p>
-        <p> $100,000 Starting MSRP*</p>
+        <p>$100,000 Starting MSRP*</p>
       </VehicleButton>
     </Link>
     </Grid>
@@ -36,7 +39,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={'span'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -65,16 +68,14 @@ export default function Vehicles(){
 
     return(
         <Box>
-        <Tabs value={value} onChange={handleChange} sx={{backgroundColor: '#303030', p:1 }} centered>
-                <BoldTab style={{color:'white'}} label="SEDANS" {...a11yProps(0)} />
-                <BoldTab style={{color:'white'}} label="SUVS" {...a11yProps(1)} />
-                <BoldTab style={{color:'white'}} label="CROSSOVERS" {...a11yProps(2)} />
-        </Tabs>
-
-        <h1 className='boldText' style={{margin:'10px 70px'}}>SEDANS</h1>
-
+          <Tabs value={value} onChange={handleChange} sx={{backgroundColor: '#303030', p:1 }} centered>
+            <BoldTab style={{color:'white'}} label="SEDANS" {...a11yProps(0)} />
+            <BoldTab style={{color:'white'}} label="SUVS" {...a11yProps(1)} />
+            <BoldTab style={{color:'white'}} label="CROSSOVERS" {...a11yProps(2)} />
+          </Tabs>
 
           <TabPanel value={value} index={0}>
+            <h1 className='boldText' style={{margin:'0px 50px'}}>SEDANS</h1>
             <Grid container 
             justifyContent="left"
             alignItems="center" 
@@ -89,6 +90,7 @@ export default function Vehicles(){
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={1}>
+            <h1 className='boldText' style={{margin:'0px 50px'}}>SUVS</h1>
             <Grid container 
             justifyContent="left"
             alignItems="center" 
@@ -101,6 +103,7 @@ export default function Vehicles(){
              </Grid>
           </TabPanel>
           <TabPanel value={value} index={2}>
+            <h1 className='boldText' style={{margin:'0px 50px'}}>CROSSOVERS</h1>
             <Grid container 
             justifyContent="left"
             alignItems="center" 
