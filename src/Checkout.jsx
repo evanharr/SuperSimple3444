@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack'
 import MenuItem from '@mui/material/MenuItem';
 import TrimPic from './Images/Trim.png'
 import Button from '@mui/material/Button'
+import { StyledTypography } from './Styles/MUIStyle.js'
 
 const paymentTypes = [
     {

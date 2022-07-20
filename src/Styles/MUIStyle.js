@@ -1,5 +1,5 @@
 import { createTheme, styled } from '@mui/material/styles';
-import { TextField, Button, Tab } from '@mui/material';
+import { TextField, Button, Tab, Paper, Typography } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
 //Taken from Login.js
@@ -38,6 +38,20 @@ export const BoldTab = styled(Tab)({
   fontFamily: 'Roboto, sans-serif',
   fontSize: 17.5,
   textTransform: 'none'
+})
+
+export const StyledPaper = styled(Paper)({
+    p: '12px',
+    borderColor: 'white',
+    background:'#424242',
+    color:'white',
+    fontFamily: 'Roboto, sans-serif'
+})
+
+export const StyledTypography = styled(Typography)({
+  borderColor: 'white',
+  color:'white',
+  fontFamily: 'Roboto, sans-serif'
 })
 
 //Sets textfield to white

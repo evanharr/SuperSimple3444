@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TrimPic from './Images/Trim.png'
 import { Button, Link } from "@mui/material";
+import { StyledTypography } from "./Styles/MUIStyle";
 
 
 
@@ -13,7 +14,7 @@ import { Button, Link } from "@mui/material";
 function Cart (){
     return(
         <div style={{ 
-        position: 'fixed',
+        position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',}}>
@@ -58,11 +59,11 @@ function Cart (){
                     <Typography style={{color:'white'}}>Interior</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
+                    <StyledTypography>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Suspendisse
                     malesuada lacus ex, sit amet blandit leo lobortis eget.
-                    </Typography>
+                    </StyledTypography>
                 </AccordionDetails>
                 </Accordion>
                 <Accordion sx={{
@@ -74,11 +75,11 @@ function Cart (){
                     <Typography style={{color:'white'}}>Exterior</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
+                    <StyledTypography>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Suspendisse
                     malesuada lacus ex, sit amet blandit leo lobortis eget.
-                    </Typography>
+                    </StyledTypography>
                 </AccordionDetails>
                 
             </Accordion>

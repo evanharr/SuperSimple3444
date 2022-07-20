@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import { Link } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
+import { StyledPaper } from './Styles/MUIStyle.js'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -22,8 +23,8 @@ function Account(){
         <Box
             sx={{
                 flexGrow: '1',
-                position: 'fixed',
-                top: '55%',
+                position: 'absolute',
+                top: '80%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: 600,
@@ -44,37 +45,37 @@ function Account(){
                 </Grid>
                 
                 
-                <Grid paddingTop='010px'>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={27.5} alignItems='center' justifyContent='flex-start'>
+                <Grid paddingTop='10px'>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
+                           <Stack direction="row" spacing={28.5} alignItems='center' justifyContent='flex-start'>
                             <p>Name: <br></br>Person's Name</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
-                    </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
+                    </StyledPaper>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
                            <Stack direction="row" spacing={17.5} alignItems='center'justifyContent='flex-start'>
                             <p>Email Address:<br></br>person@emailaddress.com</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
-                    </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
+                    </StyledPaper>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
                            <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
                             <p>Address<br></br>444 Address road, Address City, TX</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
-                    </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={28.5} alignItems='center'justifyContent='flex-start'>
+                    </StyledPaper>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
+                           <Stack direction="row" spacing={30.5} alignItems='center'justifyContent='flex-start'>
                             <p>Date of Birth<br></br>1/1/2001</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
-                    </Paper>
-                    <Paper sx={{p: '10px',borderColor: 'white',background:'#424242',color:'white'}} variant='outlined'>
-                           <Stack direction="row" spacing={31} alignItems='center'justifyContent='flex-start'>
+                    </StyledPaper>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
+                           <Stack direction="row" spacing={32.4} alignItems='center'justifyContent='flex-start'>
                             <p>Password:<br></br>******</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
-                    </Paper>
+                    </StyledPaper>
                     
                 </Grid>
                 <Grid item paddingTop='20px'>
