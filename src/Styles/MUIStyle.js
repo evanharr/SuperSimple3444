@@ -1,5 +1,5 @@
 import { createTheme, styled } from '@mui/material/styles';
-import { TextField, Button, Tab, Paper, Typography } from '@mui/material';
+import { TextField, Button, Tab, Paper, Typography, Accordion } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
 //Taken from Login.js
@@ -53,6 +53,15 @@ export const StyledTypography = styled(Typography)({
   color:'white',
   fontFamily: 'Roboto, sans-serif'
 })
+
+export const StyledAccordion = styled(Accordion)({
+  maxWidth:'600px',
+  justifyContent:'center',
+  alignItems:'center',
+  alignText:'center',
+  backgroundColor: '#303030',
+})
+
 
 //Sets textfield to white
 export const StyledTextField = styled(TextField)({
