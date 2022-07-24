@@ -3,31 +3,36 @@ import { Form} from "react-bootstrap"
 import { useAuth } from "./AuthContext.js"
 import './Styles/style.css'
 import { defaultButton, StyledTextField } from './Styles/MUIStyle.js'
-import { NavLink, useNavigate, useHistory } from 'react-router-dom';
+import { Link, useNavigate, useHistory } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { IconButton, InputAdornment, Box, Button, TextField } from '@mui/material';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-export default function Login() {
+export default function Signup() {
   const emailRef = useRef()
   const passwordRef = useRef()
-
-  const { login } = useAuth()
+  const passwordConfirmRef = useRef()
+  const { signup } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
-
-
+  
   
   async function handleSubmit(e) {
     e.preventDefault()
-   
+    console.log(passwordRef.current.value)
+    console.log(passwordConfirmRef.current.value)
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+       
+      return setError("Passwords do not match")
+    }
+
     try {
       setError("")
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
+      await signup(emailRef.current.value, passwordRef.current.value)
       console.log(emailRef.current.value)
       
       navigate('/SuperSimple3444')
@@ -47,7 +52,7 @@ export default function Login() {
         display: 'flex',
         flexDirection: 'column',
         alignItems:"center"}}>
-        <h1 className='signIn'>Login</h1>
+        <h1 className='registerInfo'>Register</h1>
         
         <Form onSubmit={handleSubmit}>
       <Form.Group id="email">
@@ -76,16 +81,35 @@ export default function Login() {
        />
       </Form.Group>
 
-    
+      <Form.Group id="password-confirm">
+      <StyledTextField label="Confirm Password" variant="filled"  required
+       type={showPassword ? "text" : "password"}
+       InputProps={{
+         endAdornment: (
+           <InputAdornment position="end">
+             <IconButton
+               sx={{color: 'black'}}
+               aria-label="toggle password visibility"
+               onClick={handleClickShowPassword}
+             >
+               {showPassword ? <Visibility /> : <VisibilityOff />}
+             </IconButton>
+           </InputAdornment>
+         )
+         
+       }}
+       inputRef={passwordConfirmRef}
+       />
+        
+      </Form.Group>
 
       <ThemeProvider theme={defaultButton}>
-         <Button  disabled={loading} sx={{ width: 400 }} variant="contained" id = "SignIn" type = "submit">
-           Sign In
+         <Button  disabled={loading} sx={{ width: 400 }} variant="contained" id = "register" type = "submit">
+           Sign Up
          </Button>
        </ThemeProvider>
       
     </Form>
-
 
    
    </Box>
