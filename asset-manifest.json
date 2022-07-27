@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/SuperSimple3444/static/css/main.6a34e981.css",
-    "main.js": "/SuperSimple3444/static/js/main.40f0f66a.js",
+    "main.js": "/SuperSimple3444/static/js/main.28c0be4d.js",
     "static/media/Background.png": "/SuperSimple3444/static/media/Background.5053c16e0a166e8c2187.png",
     "static/media/Trim.png": "/SuperSimple3444/static/media/Trim.7a223bb86cad6556efeb.png",
     "static/media/carIconLogo.svg": "/SuperSimple3444/static/media/carIconLogo.11de964ced11217d082a15aab1c57cf4.svg",
     "index.html": "/SuperSimple3444/index.html",
     "main.6a34e981.css.map": "/SuperSimple3444/static/css/main.6a34e981.css.map",
-    "main.40f0f66a.js.map": "/SuperSimple3444/static/js/main.40f0f66a.js.map"
+    "main.28c0be4d.js.map": "/SuperSimple3444/static/js/main.28c0be4d.js.map"
   },
   "entrypoints": [
     "static/css/main.6a34e981.css",
-    "static/js/main.40f0f66a.js"
+    "static/js/main.28c0be4d.js"
   ]
 }
