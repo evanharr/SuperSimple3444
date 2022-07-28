@@ -16,13 +16,57 @@ import './Styles/style.css'
 import { BoldButton, defaultButton, StyledAccordion } from './Styles/MUIStyle.js'
 import { ThemeProvider } from '@mui/material/styles';
 
+import { Canvas, useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Suspense } from "react";
+import jeep from './3d/jeep.glb'
+import { OrbitControls } from "@react-three/drei";
+
+const Model = () => {
+  const gltf = useLoader(GLTFLoader, jeep);
+  return (
+    <>
+      <primitive object={gltf.scene} scale={0.4} />
+    </>
+  );
+};
+
+function Scene() {
+  return (
+    <>
+      <ambientLight intensity={0.2} />
+      <directionalLight />
+      <OrbitControls />
+      <mesh>
+        <Model />
+      </mesh>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Canvas>
+        <Suspense fallback={null}>
+          <Scene></Scene>
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+}
+
 export default function CarConfig()
 {
     return(
     <Grid container
     direction="row">
         <Grid item xs={8}>
-            <Link to="/SuperSimple3444" style={{color: 'white'}}><ArrowBackIcon /></Link>
+            <Canvas>
+              <Suspense fallback={null}>
+                <Scene></Scene>
+              </Suspense>
+            </Canvas>
         </Grid>
         
         <Grid item xs={4} sx={{backgroundColor: "#303030", height:'100vh'}}
