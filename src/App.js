@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter} from 'react-router-dom';
 import Account from './Account'
 import Home from './Home'
 import Vehicles from './Vehicles';
@@ -13,7 +13,7 @@ import Register from "./register2"
 function App() {
   return(
   <div>
-    <BrowserRouter>
+    <HashRouter>
     <AuthProvider>
     <NavBar />
       <Routes>
@@ -28,7 +28,7 @@ function App() {
           
       </Routes>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   </div>
   )
 }
