@@ -1,13 +1,6 @@
 import React from 'react';
-import { Grid, Button, Typography } from '@mui/material';
-import { Link } from 'react-router-dom'
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import { Grid, Button, Typography, FormControlLabel, FormControl, FormLabel, AccordionSummary, AccordionDetails, Radio, RadioGroup } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -16,59 +9,39 @@ import './Styles/style.css'
 import { BoldButton, defaultButton, StyledAccordion } from './Styles/MUIStyle.js'
 import { ThemeProvider } from '@mui/material/styles';
 
-import { Canvas, useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import jeep from './3d/jeep.glb'
 import { OrbitControls } from "@react-three/drei";
+import Model  from './components/Model.jsx'
 
-const Model = () => {
-  const gltf = useLoader(GLTFLoader, jeep);
+
+function Scene(props) {
   return (
     <>
-      <primitive object={gltf.scene} scale={0.4} />
-    </>
-  );
-};
-
-function Scene() {
-  return (
-    <>
-      <ambientLight intensity={0.2} />
-      <directionalLight />
-      <OrbitControls />
-      <mesh>
-        <Model />
-      </mesh>
+      <ambientLight intensity={0.1} />
+      <directionalLight color={"white"}/>
+      <OrbitControls maxDistance={20} minDistance={15}/>
+      <Model color={props.color}/>
     </>
   )
 }
 
-function App() {
-  return (
-    <div className="App">
-      <Canvas>
-        <Suspense fallback={null}>
-          <Scene></Scene>
-        </Suspense>
-      </Canvas>
-    </div>
-  );
-}
-
 export default function CarConfig()
 {
+  const modelColor = "#4682B4";
     return(
     <Grid container
     direction="row">
+      {/*Left side of screen*/}
         <Grid item xs={8}>
             <Canvas>
               <Suspense fallback={null}>
-                <Scene></Scene>
+                <Scene color={modelColor}/>
               </Suspense>
             </Canvas>
         </Grid>
         
+        {/*Right side of screen*/}
         <Grid item xs={4} sx={{backgroundColor: "#303030", height:'100vh'}}
         container
         direction="column"
@@ -79,6 +52,7 @@ export default function CarConfig()
                 Configure Exterior
             </h1>
 
+            {/*Color Select*/}
             <StyledAccordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon style={{color:'white'}}/>}
@@ -90,13 +64,13 @@ export default function CarConfig()
               <AccordionDetails>
               <FormControl>
                   <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
+                    aria-labelledby="Car-Color"
                     defaultValue="Red"
-                    name="radio-buttons-group"
+                    name="car-color-buttons"
                   >
                     <FormControlLabel value="red" control={<Radio />} label="Red" />
-                    <FormControlLabel value="green" control={<Radio />} label="Green" />
-                    <FormControlLabel value="blue" control={<Radio />} label="Blue" />
+                    <FormControlLabel value="silver" control={<Radio />} label="Silver" />
+                    <FormControlLabel value="#4682B4" control={<Radio />} label="Blue" />
                   </RadioGroup>
                 </FormControl>
               </AccordionDetails>
@@ -107,6 +81,7 @@ export default function CarConfig()
                 aria-controls="panel2a-content"
                 id="panel2a-header"
               >
+
                 <Typography style={{color:'white'}}>Wheels</Typography>
               </AccordionSummary>
               <AccordionDetails>
