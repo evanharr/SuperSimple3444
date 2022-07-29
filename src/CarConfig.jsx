@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Button, Typography, FormControlLabel, FormControl, FormLabel, AccordionSummary, AccordionDetails, Radio, RadioGroup } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ function Scene(props) {
 
 export default function CarConfig()
 {
-  const modelColor = "#4682B4";
+  const [modelColor, setColor] = useState("Red")
     return(
     <Grid container
     direction="row">
@@ -67,6 +67,7 @@ export default function CarConfig()
                     aria-labelledby="Car-Color"
                     defaultValue="Red"
                     name="car-color-buttons"
+                    onChange={(e) => setColor(e.target.value)}
                   >
                     <FormControlLabel value="red" control={<Radio />} label="Red" />
                     <FormControlLabel value="silver" control={<Radio />} label="Silver" />
