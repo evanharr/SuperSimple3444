@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Button, Typography, FormControlLabel, FormControl, FormLabel, AccordionSummary, AccordionDetails, Radio, RadioGroup } from '@mui/material';
+import { Grid, Button, Typography, FormControlLabel, FormControl, FormLabel, AccordionSummary, AccordionDetails, Radio, RadioGroup, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -20,7 +20,7 @@ function Scene(props) {
     <>
       <ambientLight intensity={0.1} />
       <directionalLight color={"white"}/>
-      <OrbitControls maxDistance={20} minDistance={15}/>
+      <OrbitControls maxDistance={18} minDistance={13}/>
       <Model color={props.color}/>
     </>
   )
@@ -33,13 +33,29 @@ export default function CarConfig()
     <Grid container
     direction="row">
       {/*Left side of screen*/}
-        <Grid item xs={8}>
+      <Grid item xs={8}>
+        <Grid container
+            direction="column"
+            spacing= {0}
+            sx={{height:'100vh', p:0}}>
+          
+          <Grid item xs={0} >
+            <Link style={{color: 'white'}} to="/vehicle-page">
+              <IconButton aria-label="close" sx={{color: "white"}}>
+                <ArrowBackIcon />
+              </IconButton>
+            </Link>
+          </Grid>
+          
+          <Grid item xs={8}>
             <Canvas>
-              <Suspense fallback={null}>
-                <Scene color={modelColor}/>
-              </Suspense>
+             <Suspense fallback={null}>
+                 <Scene color={modelColor}/>
+             </Suspense>
             </Canvas>
+          </Grid>
         </Grid>
+      </Grid>
         
         {/*Right side of screen*/}
         <Grid item xs={4} sx={{backgroundColor: "#303030", height:'100vh'}}
@@ -65,7 +81,7 @@ export default function CarConfig()
               <FormControl>
                   <RadioGroup
                     aria-labelledby="Car-Color"
-                    defaultValue="Red"
+                    defaultValue="red"
                     name="car-color-buttons"
                     onChange={(e) => setColor(e.target.value)}
                   >
