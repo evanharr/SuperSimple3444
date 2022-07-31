@@ -61,7 +61,12 @@ export const StyledAccordion = styled(Accordion)({
   alignText:'center',
   backgroundColor: '#303030',
 })
-
+export const AccountTextFields = styled(TextField)({
+  label: "UserName",
+  variant: "filled",
+  margin:'normal',
+  backgroundColor:'white',
+})
 
 //Sets textfield to white
 export const StyledTextField = styled(TextField)({
@@ -97,4 +102,40 @@ export const StyledTextField = styled(TextField)({
         borderColor: "white"
       }
     }
+   
+  })
+  //Text field for AccountInfo Page
+  export const AccountStyledTextField = styled(TextField)({
+    background:'white',
+    margin: 10,  
+    width:400,
+  
+    input:{
+      color:"black"
+    },
+    "& label": {
+      color: "black",
+      fontWeight: 700,
+    },
+    "&:hover label": {
+      fontWeight: 700
+    },
+    "& label.Mui-focused": {
+      color: "black"
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "white"
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white"
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+        borderWidth: 2
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white"
+      }
+    },
   });

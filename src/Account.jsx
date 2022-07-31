@@ -1,21 +1,22 @@
 import React from "react";
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
-import CardContent from '@mui/material/CardContent'
-import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import { Link } from 'react-router-dom'
-import Stack from '@mui/material/Stack';
-import { StyledPaper } from './Styles/MUIStyle.js'
-
+import { Link,} from 'react-router-dom'
+import { AccountStyledTextField } from './Styles/MUIStyle.js'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { TextField } from '@mui/material';
+
 
 
 
 function Account(){
+
+    let userName = "Test Name"
+    let email = 'Test Email'
+    let address = 'Test Address'
+
 
     return(
 
@@ -24,7 +25,7 @@ function Account(){
             sx={{
                 flexGrow: '1',
                 position: 'absolute',
-                top: '80%',
+                top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: 600,
@@ -36,6 +37,7 @@ function Account(){
             
             <Grid container
                 direction ='column'
+                display = 'flex'
                 justifyContent='center'
                 alignItems='center'
                 >
@@ -43,41 +45,32 @@ function Account(){
                 <Grid item paddingTop='20px'>
                    <Typography variant="h4" color='white'>Account Information</Typography>
                 </Grid>
-                
-                
-                <Grid paddingTop='10px'>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={28.5} alignItems='center' justifyContent='flex-start'>
-                            <p>Name: <br></br>Person's Name</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
-                            </Stack> 
-                    </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={17.5} alignItems='center'justifyContent='flex-start'>
-                            <p>Email Address:<br></br>person@emailaddress.com</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
-                            </Stack> 
-                    </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
-                            <p>Address<br></br>444 Address road, Address City, TX</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
-                            </Stack> 
-                    </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={30.5} alignItems='center'justifyContent='flex-start'>
-                            <p>Date of Birth<br></br>1/1/2001</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
-                            </Stack> 
-                    </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={32.4} alignItems='center'justifyContent='flex-start'>
-                            <p>Password:<br></br>******</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
-                            </Stack> 
-                    </StyledPaper>
-                    
+                <Grid item>
+                    <AccountStyledTextField
+                        label="User Name"
+                    />
                 </Grid>
+                <Grid item>
+                    <AccountStyledTextField
+                        label="Email Address"
+                    />
+                </Grid>
+                <Grid item>
+                    <AccountStyledTextField
+                        label="Address"
+                    />
+                </Grid>
+                <Grid item>
+                    <AccountStyledTextField
+                        label="Date of Birth"
+                    />
+                </Grid>
+                <Grid item>
+                    <AccountStyledTextField
+                        label="Password"
+                    />
+                </Grid>
+                
                 <Grid item paddingTop='20px'>
                    <Typography variant="h4" color='white'>Payment Information</Typography>
                 </Grid>
