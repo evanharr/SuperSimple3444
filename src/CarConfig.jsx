@@ -84,10 +84,11 @@ export default function CarConfig()
                     defaultValue="red"
                     name="car-color-buttons"
                     onChange={(e) => setColor(e.target.value)}
+                    for='changing the color of the 3d car model'
                   >
-                    <FormControlLabel value="red" control={<Radio />} label="Red" for='chaning the car color to red' />
-                    <FormControlLabel value="silver" control={<Radio />} label="Silver" for='chaning the car color to silver' />
-                    <FormControlLabel value="#4682B4" control={<Radio />} label="Blue" for='chaning the car color to bkye'  />
+                    <FormControlLabel value="red" control={<Radio />} label="Red" for='changing the car color to red' />
+                    <FormControlLabel value="silver" control={<Radio />} label="Silver" for='changing the car color to silver' />
+                    <FormControlLabel value="#4682B4" control={<Radio />} label="Blue" for='changing the car color to blue'  />
                   </RadioGroup>
                 </FormControl>
               </AccordionDetails>
