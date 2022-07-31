@@ -84,7 +84,9 @@ export default function CarConfig()
                     defaultValue="red"
                     name="car-color-buttons"
                     onChange={(e) => setColor(e.target.value)}
+                    id='changing the color of the 3d car model'
                     for='changing the color of the 3d car model'
+                    title='changing the color of the 3d car model'
                   >
                     <FormControlLabel value="red" control={<Radio />} label="Red" for='changing the car color to red' title='changing the car color to red' id='changing the car color to red'  />
                     <FormControlLabel value="silver" control={<Radio />} label="Silver" for='changing the car color to silver' title='changing the car color to silver' id='changing the car color to silver'/>
