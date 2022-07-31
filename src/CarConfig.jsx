@@ -78,7 +78,11 @@ export default function CarConfig()
                 <Typography style={{color:'white'}}>Color</Typography>
               </AccordionSummary>
               <AccordionDetails>
-              <FormControl>
+              <FormControl
+                    aria-labelledby="Car-Color"               
+                    id='changing the color of the 3d car model'
+                    for='changing the color of the 3d car model'
+                    title='changing the color of the 3d car model'>
                   <RadioGroup
                     aria-labelledby="Car-Color"
                     defaultValue="red"
