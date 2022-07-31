@@ -16,7 +16,7 @@ function VehicleEntry()
     <Grid item xs="auto">
     <Link style={{color: 'white'}} to="/car-configuration">
       <VehicleButton sx={{ display: 'grid'}} > 
-        <img src={TrimPic} alt="Car button" longdesc= "Button to open build page of [CAR MODEL]"></img>
+        <img src={TrimPic} alt="Car button" longdesc= "Button to open build page of [CAR MODEL]" color= "white"></img>
         <p>Car Example</p>
         <p>$100,000 Starting MSRP*</p>
       </VehicleButton>
