@@ -34,13 +34,13 @@ export default function CarConfig()
     return(
     <Grid container
     direction="row"
-    sx={{minWidth: "100%", height: '100vh'}}>
+    sx={{minWidth: "100%", height: '90vh'}}>
       {/*Left side of screen*/}
       <Grid item xs={8}>
         <Grid container
             direction="column"
             spacing= {0}
-            sx={{minWidth: "100%", height: '100%'}}
+            sx={{minWidth: "100%", height: '90%'}}
             >
           
           <Grid item xs={1} >
@@ -60,9 +60,9 @@ export default function CarConfig()
           </Grid>
         </Grid>
         
-        <Grid item xs={1}>
-          <Typography sx={{float: "right"}}>right</Typography>
-          <Typography sx={{left: 0}}>word</Typography>
+        <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
+          <Typography sx={{left: 0, display: "inline", fontWeight: 700, fontSize: 20}}>Car name here</Typography>
+          <Typography sx={{position:"relative", fontSize: 16}}>MSRP: $100,000</Typography>
         </Grid>
 
       </Grid>
@@ -85,7 +85,7 @@ export default function CarConfig()
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography style={{color:'white'}}>Color</Typography>
+                <Typography style={{color:'white', fontWeight: 700, fontSize: 20}}>Color</Typography>
               </AccordionSummary>
               <AccordionDetails>
               <FormControl
@@ -117,7 +117,7 @@ export default function CarConfig()
                 id="panel2a-header"
               >
 
-                <Typography style={{color:'white'}}>Wheels</Typography>
+                <Typography style={{color:'white', fontWeight: 700, fontSize: 20}}>Wheels</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <FormControl
