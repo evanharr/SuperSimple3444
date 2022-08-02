@@ -8,7 +8,8 @@ import { Environment, OrbitControls, useGLTF, useTexture } from "@react-three/dr
 export default function Model({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF(mazda);
-  const paintColor = props.color
+  const paintColor = props.color;
+  const wheelColor = props.wheelColor;
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -337,7 +338,9 @@ export default function Model({ ...props }) {
           receiveShadow
           geometry={nodes.Mesh007.geometry}
           material={materials["08,09,10,11 Rime.001"]}
-        />
+          >
+          <meshStandardMaterial color={wheelColor} metalness={0.5}></meshStandardMaterial>
+          </mesh>
         <mesh
           castShadow
           receiveShadow
@@ -363,7 +366,9 @@ export default function Model({ ...props }) {
           receiveShadow
           geometry={nodes.Mesh008.geometry}
           material={materials["08,09,10,11 Rime.001"]}
-        />
+          >
+          <meshStandardMaterial color={wheelColor} metalness={0.5}></meshStandardMaterial>
+          </mesh>
         <mesh
           castShadow
           receiveShadow
@@ -389,7 +394,9 @@ export default function Model({ ...props }) {
           receiveShadow
           geometry={nodes.Mesh009.geometry}
           material={materials["08,09,10,11 Rime.001"]}
-        />
+        >
+          <meshStandardMaterial color={wheelColor} metalness={0.5}></meshStandardMaterial>
+        </mesh>
         <mesh
           castShadow
           receiveShadow
@@ -415,7 +422,9 @@ export default function Model({ ...props }) {
           receiveShadow
           geometry={nodes.Mesh010.geometry}
           material={materials["08,09,10,11 Rime.001"]}
-        />
+          >
+          <meshStandardMaterial color={wheelColor} metalness={0.5}></meshStandardMaterial>
+          </mesh>
         <mesh
           castShadow
           receiveShadow

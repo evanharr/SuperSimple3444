@@ -6,7 +6,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Styles/style.css'
-import { BoldButton, defaultButton, StyledAccordion } from './Styles/MUIStyle.js'
+import { BoldButton, defaultButton, StyledAccordion, StyledRadio } from './Styles/MUIStyle.js'
 import { ThemeProvider } from '@mui/material/styles';
 
 import { Canvas } from "@react-three/fiber";
@@ -21,25 +21,29 @@ function Scene(props) {
       <ambientLight intensity={0.1} />
       <directionalLight color={"white"}/>
       <OrbitControls maxDistance={18} minDistance={13}/>
-      <Model color={props.color}/>
+      <Model color={props.color} wheelColor={props.wheelColor}/>
     </>
   )
 }
 
 export default function CarConfig()
 {
-  const [modelColor, setColor] = useState("Red")
+  const [modelColor, setColor] = useState("Red");
+  const [wheelClr, setWheelColor] = useState("#a9a9a9");
+
     return(
     <Grid container
-    direction="row">
+    direction="row"
+    sx={{minWidth: "100%", height: '100vh'}}>
       {/*Left side of screen*/}
       <Grid item xs={8}>
         <Grid container
             direction="column"
             spacing= {0}
-            sx={{height:'100vh', p:0}}>
+            sx={{minWidth: "100%", height: '100%'}}
+            >
           
-          <Grid item xs={0} >
+          <Grid item xs={1} >
             <Link style={{color: 'white'}} to="/vehicle-page">
               <IconButton aria-label="close" sx={{color: "white"}}>
                 <ArrowBackIcon />
@@ -47,18 +51,24 @@ export default function CarConfig()
             </Link>
           </Grid>
           
-          <Grid item xs={8}>
+          <Grid item xs={10}>
             <Canvas>
              <Suspense fallback={null}>
-                 <Scene color={modelColor}/>
+                 <Scene color={modelColor} wheelColor={wheelClr}/>
              </Suspense>
             </Canvas>
           </Grid>
         </Grid>
+        
+        <Grid item xs={1}>
+          <Typography sx={{float: "right"}}>right</Typography>
+          <Typography sx={{left: 0}}>word</Typography>
+        </Grid>
+
       </Grid>
         
         {/*Right side of screen*/}
-        <Grid item xs={4} sx={{backgroundColor: "#303030", height:'100vh'}}
+        <Grid item xs={4} sx={{backgroundColor: "#303030", }}
         container
         direction="column"
         justifyContent="flex-start"
@@ -69,7 +79,7 @@ export default function CarConfig()
             </h1>
 
             {/*Color Select*/}
-            <StyledAccordion>
+            <StyledAccordion sx={{width: "100%"}} >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon style={{color:'white'}}/>}
                 aria-controls="panel1a-content"
@@ -79,7 +89,8 @@ export default function CarConfig()
               </AccordionSummary>
               <AccordionDetails>
               <FormControl
-                    aria-labelledby="Car-Color"               
+                    aria-labelledby="Car-Color"           
+                    sx={{color: "white"}}    
                     id='changing the color of the 3d car model'
                     for='changing the color of the 3d car model'
                     title='changing the color of the 3d car model'>
@@ -92,14 +103,14 @@ export default function CarConfig()
                     for='changing the color of the 3d car model'
                     title='changing the color of the 3d car model'
                   >
-                    <FormControlLabel value="red" control={<Radio />} label="Red" for='changing the car color to red' title='changing the car color to red' id='changing the car color to red'  />
-                    <FormControlLabel value="silver" control={<Radio />} label="Silver" for='changing the car color to silver' title='changing the car color to silver' id='changing the car color to silver'/>
-                    <FormControlLabel value="#4682B4" control={<Radio />} label="Blue" for='changing the car color to blue'  title='changing the car color to blue' id='changing the car color to blue'/>
+                    <FormControlLabel value="red" control={<StyledRadio />} label="Red" for='changing the car color to red' title='changing the car color to red' id='changing the car color to red'  />
+                    <FormControlLabel value="silver" control={<StyledRadio />} label="Silver" for='changing the car color to silver' title='changing the car color to silver' id='changing the car color to silver'/>
+                    <FormControlLabel value="#4682B4" control={<StyledRadio />} label="Blue" for='changing the car color to blue'  title='changing the car color to blue' id='changing the car color to blue'/>
                   </RadioGroup>
                 </FormControl>
               </AccordionDetails>
             </StyledAccordion>
-            <StyledAccordion>
+            <StyledAccordion sx={{width: "100%"}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon style={{color:'white'}}/>}
                 aria-controls="panel2a-content"
@@ -109,21 +120,38 @@ export default function CarConfig()
                 <Typography style={{color:'white'}}>Wheels</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                  malesuada lacus ex, sit amet blandit leo lobortis eget.
-                </Typography>
+                <FormControl
+                  aria-labelledby="Wheel-Color"           
+                  sx={{color: "white"}}    
+                  id='changing the tire color of the 3d car model'
+                  for='changing the tire color of the 3d car model'
+                  title='changing the tire color of the 3d car model'>
+                  <RadioGroup
+                    aria-labelledby="Wheel-Color"
+                    defaultValue="#a9a9a9"
+                    name="tire-color-buttons"
+                    onChange={(e) => setWheelColor(e.target.value)}
+                    id='changing the Wheel color of the 3d car model'
+                    for='changing the Wheel color of the 3d car model'
+                    title='changing the Wheel color of the 3d car model'
+                  >
+                    <FormControlLabel value="#a9a9a9" control={<StyledRadio />} label="Silver" 
+                    for='changing the car color to silver' title='changing the car color to silver' id='changing the car wheel to silver'/>
+                    <FormControlLabel value="#696969" control={<StyledRadio />} label="Dark Gray" 
+                    for='changing the car color to dark grey'  title='changing the car color to dark grey' id='changing the wheel color to dark grey'/>
+                  </RadioGroup>
+                </FormControl>
               </AccordionDetails>
             </StyledAccordion>
 
 
-            <BoldButton variant="contained">
+            <BoldButton variant="contained" sx={{width: "100%"}}>
                 Back
                 <ArrowForwardIosIcon />
             </BoldButton>
             <ThemeProvider theme={defaultButton}>
-                <Button  variant="contained">
-                  Next/Interior
+                <Button  variant="contained" sx={{width: "100%"}}>
+                  Checkout
                   <ArrowForwardIosIcon />
                 </Button>
             </ThemeProvider>
