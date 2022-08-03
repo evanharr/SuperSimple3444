@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, Component, useEffect } from "react"
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
@@ -13,9 +13,46 @@ import { StyledPaper } from './Styles/MUIStyle.js'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+import {getDatabase, set, ref, update, onValue, get,child, push} from "firebase/database";
+import {database} from "./firebase"
+import { useAuth } from "./AuthContext.js"
 
 
-function Account(){
+
+
+function Account (){
+    const {getCurrentUser} = useAuth()
+    const user = getCurrentUser()
+    const email = user.email
+    const [firstName, setFirstName] = useState()
+    const [lastName, setLastName] = useState()
+    const [address, setAddress] = useState()
+    const [DOB, setDOB] = useState()
+    
+    
+    
+    
+   
+   //getting snapshot of data from firebase database
+    useEffect(() =>
+    {
+        const reference = ref(database,'/users/' + user.uid);
+        get(reference).then((snapshot) =>
+        {if(snapshot.exists())
+          {
+            
+            setFirstName(snapshot.val().firstName)
+            setLastName (snapshot.val().lastName)
+            setAddress (snapshot.val().address)
+            setDOB(snapshot.val().DOB)
+          }
+         
+        });
+    })
+    
+    
+   
+
 
     return(
 
@@ -48,25 +85,32 @@ function Account(){
                 <Grid paddingTop='10px'>
                     <StyledPaper sx={{p: '10px'}} variant='outlined'>
                            <Stack direction="row" spacing={28.5} alignItems='center' justifyContent='flex-start'>
-                            <p>Name: <br></br>Person's Name</p>
+                           <p>Name:<br></br>
+                           {firstName} &nbsp;
+                           {lastName}
+                           
+                           </p>
+                           
+                           
+                           
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
                     </StyledPaper>
                     <StyledPaper sx={{p: '10px'}} variant='outlined'>
                            <Stack direction="row" spacing={17.5} alignItems='center'justifyContent='flex-start'>
-                            <p>Email Address:<br></br>person@emailaddress.com</p>
+                            <p>Email Address:<br></br>{email}</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
                     </StyledPaper>
                     <StyledPaper sx={{p: '10px'}} variant='outlined'>
                            <Stack direction="row" spacing={10} alignItems='center'justifyContent='flex-start'>
-                            <p>Address<br></br>444 Address road, Address City, TX</p>
+                            <p>Address<br></br>{address}</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
                     </StyledPaper>
                     <StyledPaper sx={{p: '10px'}} variant='outlined'>
                            <Stack direction="row" spacing={30.5} alignItems='center'justifyContent='flex-start'>
-                            <p>Date of Birth<br></br>1/1/2001</p>
+                            <p>Date of Birth<br></br>{DOB}</p>
                             <Button variant='contained' size='small' style={{background:"#00853E"}}>Edit</Button>
                             </Stack> 
                     </StyledPaper>

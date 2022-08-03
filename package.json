@@ -1,7 +1,7 @@
 {
   "name": "car",
   "version": "0.1.0",
-  "homepage": "https://evanharr.github.io/SuperSimple3444",
+  "homepage": "https://evanharr.github.io/SuperSimple3444/#/SuperSimple3444",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",

@@ -9,12 +9,14 @@ import Cart from './Cart'
 import Checkout from './Checkout'
 import CarConfig from './CarConfig'
 import { AuthProvider } from "./AuthContext"
+
 import Register from "./register2"
 function App() {
   return(
   <div>
     <HashRouter>
     <AuthProvider>
+ 
     <NavBar />
       <Routes>
           <Route path="/SuperSimple3444" element ={<Home />}></Route>
@@ -27,6 +29,7 @@ function App() {
 
           
       </Routes>
+      
       </AuthProvider>
     </HashRouter>
   </div>
