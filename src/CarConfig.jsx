@@ -51,6 +51,7 @@ export default function CarConfig()
             </Link>
           </Grid>
           
+          {/*3d Model*/}
           <Grid item xs={10}>
             <Canvas>
              <Suspense fallback={null}>
@@ -61,8 +62,8 @@ export default function CarConfig()
         </Grid>
         
         <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
-          <Typography sx={{left: 0, display: "inline", fontWeight: 700, fontSize: 20}}>Car name here</Typography>
-          <Typography sx={{position:"relative", fontSize: 16}}>MSRP: $100,000</Typography>
+          <Typography sx={{left: 0, display: "inline", fontWeight: 700, fontSize: 24}}>Car name here</Typography>
+          <Typography sx={{position:"relative", fontSize: 20}}>MSRP: $100,000</Typography>
         </Grid>
 
       </Grid>
@@ -79,7 +80,7 @@ export default function CarConfig()
             </h1>
 
             {/*Color Select*/}
-            <StyledAccordion sx={{width: "100%"}} >
+            <StyledAccordion sx={{width: "100%", border: 1}} >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon style={{color:'white'}}/>}
                 aria-controls="panel1a-content"
@@ -90,7 +91,7 @@ export default function CarConfig()
               <AccordionDetails>
               <FormControl
                     aria-labelledby="Car-Color"           
-                    sx={{color: "white"}}    
+                    sx={{color: "white" }}    
                     id='changing the color of the 3d car model'
                     for='changing the color of the 3d car model'
                     title='changing the color of the 3d car model'>
@@ -110,22 +111,23 @@ export default function CarConfig()
                 </FormControl>
               </AccordionDetails>
             </StyledAccordion>
-            <StyledAccordion sx={{width: "100%"}}>
+            
+            {/*Wheel Color Select*/}
+            <StyledAccordion sx={{width: "100%", border: 1, margin: 1}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{color:'white'}}/>}
+                expandIcon={<ExpandMoreIcon style={{color:'white',}}/>}
                 aria-controls="panel2a-content"
                 id="panel2a-header"
               >
-
                 <Typography style={{color:'white', fontWeight: 700, fontSize: 20}}>Wheels</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <FormControl
                   aria-labelledby="Wheel-Color"           
                   sx={{color: "white"}}    
-                  id='changing the tire color of the 3d car model'
-                  for='changing the tire color of the 3d car model'
-                  title='changing the tire color of the 3d car model'>
+                  id='changing the Wheel color of the 3d car model'
+                  for='changing the Wheel color of the 3d car model'
+                  title='changing the Wheel color of the 3d car model'>
                   <RadioGroup
                     aria-labelledby="Wheel-Color"
                     defaultValue="#a9a9a9"
@@ -144,16 +146,19 @@ export default function CarConfig()
               </AccordionDetails>
             </StyledAccordion>
 
-
-            <BoldButton variant="contained" sx={{width: "100%"}}>
+            <Link style={{color: 'white', width: "100%"}} to="/vehicle-page">
+              <BoldButton variant="contained" sx={{width: "100%"}}>
                 Back
                 <ArrowForwardIosIcon />
-            </BoldButton>
+              </BoldButton>
+            </Link>
             <ThemeProvider theme={defaultButton}>
+              <Link style={{color: 'white', width: "100%"}} to="/cart">
                 <Button  variant="contained" sx={{width: "100%"}}>
-                  Checkout
+                  Cart
                   <ArrowForwardIosIcon />
                 </Button>
+              </Link>
             </ThemeProvider>
         </Grid>
     </Grid>
