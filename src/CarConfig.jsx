@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Grid, Button, Typography, FormControlLabel, FormControl, FormLabel, AccordionSummary, AccordionDetails, Radio, RadioGroup, IconButton } from '@mui/material';
+import { Grid, Button, Typography, FormControlLabel, FormControl, AccordionSummary, AccordionDetails, RadioGroup, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ThreeSixtyIcon from '@mui/icons-material/ThreeSixty';
 import './Styles/style.css'
-import { BoldButton, defaultButton, StyledAccordion, StyledRadio } from './Styles/MUIStyle.js'
+import { defaultButton, StyledAccordion, StyledRadio } from './Styles/MUIStyle.js'
 import { ThemeProvider } from '@mui/material/styles';
 
 import { Canvas } from "@react-three/fiber";
@@ -58,9 +59,11 @@ export default function CarConfig()
                  <Scene color={modelColor} wheelColor={wheelClr}/>
              </Suspense>
             </Canvas>
+            <ThreeSixtyIcon fontSize='large' sx={{position: 'absolute', left: '35%', color:'white'}}/>
           </Grid>
         </Grid>
         
+
         <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
           <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>Car name here</Typography>
           <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: $100,000</Typography>
@@ -146,15 +149,12 @@ export default function CarConfig()
               </AccordionDetails>
             </StyledAccordion>
 
-            <Link style={{color: 'white', width: "100%"}} to="/vehicle-page">
-              <BoldButton variant="contained" sx={{width: "100%"}}>
-                Back
-                <ArrowForwardIosIcon />
-              </BoldButton>
-            </Link>
             <ThemeProvider theme={defaultButton}>
+              <Button variant="contained" sx={{width: "100%", marginTop: 1}}>
+                Save Configuration
+              </Button> 
               <Link style={{color: 'white', width: "100%"}} to="/cart">
-                <Button  variant="contained" sx={{width: "100%"}}>
+                <Button  variant="contained" sx={{marginTop: 1 ,width: "100%"}}>
                   Cart
                   <ArrowForwardIosIcon />
                 </Button>
