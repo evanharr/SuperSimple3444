@@ -62,8 +62,8 @@ export default function CarConfig()
         </Grid>
         
         <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
-          <Typography sx={{left: 0, display: "inline", fontWeight: 700, fontSize: 24}}>Car name here</Typography>
-          <Typography sx={{position:"relative", fontSize: 20}}>MSRP: $100,000</Typography>
+          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>Car name here</Typography>
+          <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: $100,000</Typography>
         </Grid>
 
       </Grid>
