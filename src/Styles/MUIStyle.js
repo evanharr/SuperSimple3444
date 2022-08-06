@@ -1,5 +1,5 @@
 import { createTheme, styled } from '@mui/material/styles';
-import { TextField, Button, Tab, Paper, Typography, Accordion } from '@mui/material';
+import { TextField, Button, Tab, Paper, Typography, Accordion, Radio } from '@mui/material';
 
 //Keeping styles for MUI components here so they can be used for different functions
 //Taken from Login.js
@@ -62,7 +62,15 @@ export const StyledAccordion = styled(Accordion)({
   backgroundColor: '#303030',
 })
 
+export const StyledRadio = styled(Radio)({
+  '&, &.MuiRadio-colorSecondary': {
+    color: 'white',
+  },
+  '&, &..Mui-checked': {
+    color: 'blue',
+  },
 
+})
 //Sets textfield to white
 export const StyledTextField = styled(TextField)({
     align:'center',

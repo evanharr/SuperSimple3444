@@ -8,6 +8,7 @@ import NavBar from './components/NavBar'
 import Cart from './Cart'
 import Checkout from './Checkout'
 import CarConfig from './CarConfig'
+import SavedCarConfig from './SavedCarConfig'
 import { AuthProvider } from "./AuthContext"
 
 import Register from "./register2"
@@ -26,6 +27,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/car-configuration" element={<CarConfig />}></Route>
           <Route path="/register2" element={<Register />}></Route>
+          <Route path="/account-info/SavedCarConfig" element={<SavedCarConfig />}></Route>
 
           
       </Routes>

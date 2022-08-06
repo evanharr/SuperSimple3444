@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
     }
   
     function updateUserPassword(password) {
-      return updatePassword(password)
+      return updatePassword(currentUser,password)
     }
 
     function getCurrentUser()
@@ -71,7 +71,9 @@ export function AuthProvider({ children }) {
       resetPassword,
       updateEmail,
       updatePassword,
-      getCurrentUser
+      getCurrentUser,
+      updateUserEmail,
+      updateUserPassword
     }
   
     return (

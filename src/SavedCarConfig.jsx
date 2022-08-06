@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, Button, Typography, FormControlLabel, FormControl, AccordionSummary, AccordionDetails, RadioGroup, IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -14,6 +14,11 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import Model  from './components/Model.jsx'
+
+//import Auth and Database
+import {getDatabase, set, ref, update, onValue, get,child, push} from "firebase/database";
+import {database} from "./firebase"
+import { useAuth } from "./AuthContext.js"
 
 
 function Scene(props) {
@@ -53,7 +58,7 @@ export default function CarConfig()
           </Grid>
           
           {/*3d Model*/}
-          <Grid item xs={10}>
+          <Grid item xs={5}>
             <Canvas>
              <Suspense fallback={null}>
                  <Scene color={modelColor} wheelColor={wheelClr}/>
@@ -164,4 +169,3 @@ export default function CarConfig()
     </Grid>
     )
 }
-
