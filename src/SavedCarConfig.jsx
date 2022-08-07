@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Button, Typography, FormControlLabel, FormControl, AccordionSummary, AccordionDetails, RadioGroup, IconButton } from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
 
@@ -37,20 +37,53 @@ export default function CarConfig()
   const [modelColor, setColor] = useState("Red");
   const [wheelClr, setWheelColor] = useState("#a9a9a9");
 
+  const {getCurrentUser} = useAuth()
+  const user = getCurrentUser()
+
+  const [carName, setCarName] = useState()
+  const [carPrice,setCarPrice] = useState()
+
+  const[hasSavedCar,setHasSavedCar] = useState(false)
+
+// get saved configuration
+  useEffect(() =>
+    {
+        const reference = ref(database,'/users/' + user.uid + '/SavedCars/');
+        get(reference).then((snapshot) =>
+        {if(snapshot.exists())
+          {
+            setHasSavedCar(true)
+            setCarName(snapshot.val().Name)
+            setCarPrice(snapshot.val().Price)
+            setColor(snapshot.val().Color)
+            setWheelColor(snapshot.val().WheelClr)
+            
+          }
+         
+        });
+    })
     return(
+        
+        
+       <div>
+        {hasSavedCar && ( 
+        
     <Grid container
     direction="row"
     sx={{minWidth: "100%", height: '90vh'}}>
+        
+
       {/*Left side of screen*/}
       <Grid item xs={8}>
         <Grid container
             direction="column"
             spacing= {0}
-            sx={{minWidth: "100%", height: '90%'}}
+            sx={{minWidth: "100%", height: '30%'}}
             >
           
+          
           <Grid item xs={1} >
-            <Link style={{color: 'white'}} to="/vehicle-page">
+            <Link style={{color: 'white'}} to="/account-info">
               <IconButton aria-label="close" sx={{color: "white"}}>
                 <ArrowBackIcon />
               </IconButton>
@@ -70,8 +103,8 @@ export default function CarConfig()
         
 
         <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
-          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>Car name here</Typography>
-          <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: $100,000</Typography>
+          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>{carName}</Typography>
+          <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: ${carPrice}</Typography>
         </Grid>
 
       </Grid>
@@ -160,12 +193,15 @@ export default function CarConfig()
               </Button> 
               <Link style={{color: 'white', width: "100%"}} to="/cart">
                 <Button  variant="contained" sx={{marginTop: 1 ,width: "100%"}}>
-                  Cart
+                  Add to Cart
                   <ArrowForwardIosIcon />
                 </Button>
               </Link>
             </ThemeProvider>
         </Grid>
     </Grid>
+    )}
+    </div>
+    
     )
 }

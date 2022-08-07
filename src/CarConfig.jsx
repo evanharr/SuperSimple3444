@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Button, Typography, FormControlLabel, FormControl, AccordionSummary, AccordionDetails, RadioGroup, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -15,6 +15,11 @@ import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import Model  from './components/Model.jsx'
 
+import {getDatabase, set, ref, update, onValue, get,child, push} from "firebase/database";
+import {database} from "./firebase"
+import { useAuth } from "./AuthContext.js"
+import { DstAlphaFactor } from 'three';
+
 
 function Scene(props) {
   return (
@@ -29,8 +34,59 @@ function Scene(props) {
 
 export default function CarConfig()
 {
+
+  const {getCurrentUser} = useAuth()
+  const user = getCurrentUser()
+
+  const [carName, setCarName] = useState()
+  const [carPrice,setCarPrice] = useState()
+  
   const [modelColor, setColor] = useState("Red");
   const [wheelClr, setWheelColor] = useState("#a9a9a9");
+
+  //get database information for car
+  useEffect(() =>
+    {
+        const reference = ref(database,'/Cars/'+ '/Mazda/');
+        get(reference).then((snapshot) =>
+        {if(snapshot.exists())
+          {
+            setCarName(snapshot.val().Name)
+            setCarPrice(snapshot.val().Price)
+            
+          }
+         
+        });
+    })
+    
+    
+  //save user configuration to database
+    async function handleSubmitConfig(e){
+        
+      try{
+          push(ref((database, '/users/' + user.uid + '/SavedCars/')), {
+              
+              Name:carName,
+              Price:carPrice,
+              Color:modelColor,
+              WheelClr:wheelClr
+      
+             })
+              .then(() => {
+                  // Data saved successfully!
+                  alert('Car Saved Successfully');
+      
+              })
+              .catch((error) => {
+                  // The write failed...
+                  alert(error);
+              });
+      }
+      catch{
+    
+      }
+    }
+
 
     return(
     <Grid container
@@ -65,8 +121,8 @@ export default function CarConfig()
         
 
         <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
-          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>Car name here</Typography>
-          <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: $100,000</Typography>
+          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>{carName}</Typography>
+          <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: ${carPrice}</Typography>
         </Grid>
 
       </Grid>
@@ -150,7 +206,7 @@ export default function CarConfig()
             </StyledAccordion>
 
             <ThemeProvider theme={defaultButton}>
-              <Button variant="contained" sx={{width: "100%", marginTop: 1}}>
+              <Button variant="contained" sx={{width: "100%", marginTop: 1}} onClick= {() =>{handleSubmitConfig()}}>
                 Save Configuration
               </Button> 
               <Link style={{color: 'white', width: "100%"}} to="/cart">
