@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment} from 'react';
 import { Grid, Button, Typography, FormControlLabel, FormControl, AccordionSummary, AccordionDetails, RadioGroup, IconButton } from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
 
@@ -19,7 +19,8 @@ import Model  from './components/Model.jsx'
 import {getDatabase, set, ref, update, onValue, get,child, push} from "firebase/database";
 import {database} from "./firebase"
 import { useAuth } from "./AuthContext.js"
-
+import { createRenderer } from 'react-dom/test-utils';
+import _ from 'lodash'
 
 function Scene(props) {
   return (
@@ -44,7 +45,12 @@ export default function CarConfig()
   const [carPrice,setCarPrice] = useState()
 
   const[hasSavedCar,setHasSavedCar] = useState(false)
-
+  const [arr,setArr] = useState()
+  var carNameList = [];
+  var carPriceList = [];
+  var carColorList = [];
+  var carWheelColorList = [];
+  const [numItems,setNumItems] = useState()
 // get saved configuration
   useEffect(() =>
     {
@@ -52,156 +58,146 @@ export default function CarConfig()
         get(reference).then((snapshot) =>
         {if(snapshot.exists())
           {
+            snapshot.forEach(function(item)
+            {
+                console.log("here",item.val())
+                
+                    console.log("child",item.val().Name)
+                    carNameList.push(item.val().Name)
+                    carPriceList.push(item.val().Price)
+                    carColorList.push(item.val().Color)
+                    carWheelColorList.push(item.val().WheelClr)
+                    setNumItems(carNameList.length)
+
+             });
+            
             setHasSavedCar(true)
             setCarName(snapshot.val().Name)
             setCarPrice(snapshot.val().Price)
             setColor(snapshot.val().Color)
             setWheelColor(snapshot.val().WheelClr)
             
+            console.log("CarNameList: ",carNameList)
+            console.log("numItems", numItems)
+            console.log("CarColorList: ",carColorList[1])
           }
          
         });
     })
-    return(
-        
-        
-       <div>
-        {hasSavedCar && ( 
-        
-    <Grid container
-    direction="row"
-    sx={{minWidth: "100%", height: '90vh'}}>
-        
 
+    const getCarInfo = () =>
+    {
+       
+    }
+    
+    return (
+        
+        <div>
+             <Grid container
+    direction="row"
+    sx={{minWidth: "100%", height: '5vh'}}>
+        
+       
       {/*Left side of screen*/}
-      <Grid item xs={8}>
+      <Grid item xs={1}>
         <Grid container
             direction="column"
-            spacing= {0}
-            sx={{minWidth: "100%", height: '30%'}}
+            spacing= {20}
+            sx={{minWidth: "100%", height: '0%'}}
             >
-          
-          
-          <Grid item xs={1} >
+                <Grid item xs={1} >
             <Link style={{color: 'white'}} to="/account-info">
               <IconButton aria-label="close" sx={{color: "white"}}>
-                <ArrowBackIcon />
+                
+                <ArrowBackIcon >
+                    Return to Account
+                    </ArrowBackIcon>
               </IconButton>
             </Link>
           </Grid>
-          
-          {/*3d Model*/}
-          <Grid item xs={5}>
-            <Canvas>
-             <Suspense fallback={null}>
-                 <Scene color={modelColor} wheelColor={wheelClr}/>
-             </Suspense>
-            </Canvas>
-            <ThreeSixtyIcon fontSize='large' sx={{position: 'absolute', left: '35%', color:'white'}}/>
-          </Grid>
-        </Grid>
-        
-
-        <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
-          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>{carName}</Typography>
-          <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: ${carPrice}</Typography>
-        </Grid>
-
-      </Grid>
-        
-        {/*Right side of screen*/}
-        <Grid item xs={4} sx={{backgroundColor: "#303030", }}
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        >
-            <h1 className='boldText' style={{margin:'10px'}} xs={1}> 
-                Configure Exterior
+          <Grid item xs ={1}>
+          <h1 className='boldText' style={{margin:'6px'}} xs={1}> 
+                Saved Configurations
             </h1>
+          </Grid>
 
-            {/*Color Select*/}
-            <StyledAccordion sx={{width: "100%", border: 1}} >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{color:'white'}}/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography style={{color:'white', fontWeight: 700, fontSize: 20}}>Color</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-              <FormControl
-                    aria-labelledby="Car-Color"           
-                    sx={{color: "white" }}    
-                    id='changing the color of the 3d car model'
-                    for='changing the color of the 3d car model'
-                    title='changing the color of the 3d car model'>
-                  <RadioGroup
-                    aria-labelledby="Car-Color"
-                    defaultValue="red"
-                    name="car-color-buttons"
-                    onChange={(e) => setColor(e.target.value)}
-                    id='changing the color of the 3d car model'
-                    for='changing the color of the 3d car model'
-                    title='changing the color of the 3d car model'
-                  >
-                    <FormControlLabel value="red" control={<StyledRadio />} label="Red" for='changing the car color to red' title='changing the car color to red' id='changing the car color to red'  />
-                    <FormControlLabel value="silver" control={<StyledRadio />} label="Silver" for='changing the car color to silver' title='changing the car color to silver' id='changing the car color to silver'/>
-                    <FormControlLabel value="#4682B4" control={<StyledRadio />} label="Blue" for='changing the car color to blue'  title='changing the car color to blue' id='changing the car color to blue'/>
-                  </RadioGroup>
-                </FormControl>
-              </AccordionDetails>
-            </StyledAccordion>
-            
-            {/*Wheel Color Select*/}
-            <StyledAccordion sx={{width: "100%", border: 1, margin: 1}}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{color:'white',}}/>}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography style={{color:'white', fontWeight: 700, fontSize: 20}}>Wheels</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <FormControl
-                  aria-labelledby="Wheel-Color"           
-                  sx={{color: "white"}}    
-                  id='changing the Wheel color of the 3d car model'
-                  for='changing the Wheel color of the 3d car model'
-                  title='changing the Wheel color of the 3d car model'>
-                  <RadioGroup
-                    aria-labelledby="Wheel-Color"
-                    defaultValue="#a9a9a9"
-                    name="tire-color-buttons"
-                    onChange={(e) => setWheelColor(e.target.value)}
-                    id='changing the Wheel color of the 3d car model'
-                    for='changing the Wheel color of the 3d car model'
-                    title='changing the Wheel color of the 3d car model'
-                  >
-                    <FormControlLabel value="#a9a9a9" control={<StyledRadio />} label="Silver" 
-                    for='changing the car color to silver' title='changing the car color to silver' id='changing the car wheel to silver'/>
-                    <FormControlLabel value="#696969" control={<StyledRadio />} label="Dark Gray" 
-                    for='changing the car color to dark grey'  title='changing the car color to dark grey' id='changing the wheel color to dark grey'/>
-                  </RadioGroup>
-                </FormControl>
-              </AccordionDetails>
-            </StyledAccordion>
-
-            <ThemeProvider theme={defaultButton}>
-              <Button variant="contained" sx={{width: "100%", marginTop: 1}}>
-                Save Configuration
-              </Button> 
-              <Link style={{color: 'white', width: "100%"}} to="/cart">
-                <Button  variant="contained" sx={{marginTop: 1 ,width: "100%"}}>
-                  Add to Cart
-                  <ArrowForwardIosIcon />
-                </Button>
-              </Link>
-            </ThemeProvider>
         </Grid>
-    </Grid>
-    )}
-    </div>
-    
+        </Grid>
+        </Grid>
+        
+
+            {/*iterate through number of items in car*/}
+            {hasSavedCar && ( 
+            <div>
+            {_.times(numItems,(carNameList) =>
+             <Grid container
+             direction="row"
+             sx={{minWidth: "100%", height: '30vh'}}>
+                 
+         
+               {/*Left side of screen*/}
+               <Grid item xs={8} key ={carNameList}>
+                 <Grid container
+                     direction="column"
+                     spacing= {0}
+                     sx={{minWidth: "100%", height: '30%'}}
+                     >
+                   
+                   
+                   
+                   
+                   {/*3d Model*/}
+                   <Grid item xs={5}>
+                     <Canvas>
+                        
+                      <Suspense fallback={null}>
+                          <Scene color={carColorList[numItems]} wheelColor={carWheelColorList.at(numItems)}/>
+                      </Suspense>
+                     </Canvas>
+                     <ThreeSixtyIcon fontSize='large' sx={{position: 'absolute', left: '35%', color:'white'}}/>
+                   </Grid>
+                 </Grid>
+                 
+         
+                 <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
+                   <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>{carNameList}</Typography>
+                   <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: ${carPrice}</Typography>
+                 </Grid>
+         
+               </Grid>
+                 
+                 {/*Right side of screen*/}
+                 
+                 <Grid item xs={4} sx={{backgroundColor: "#303030", }}
+                 container
+                 direction="column"
+                 justifyContent="flex-start"
+                 alignItems="center"
+                 >
+                     <h1 className='boldText' style={{margin:'5px'}} xs={1}> 
+                       {carNameList}
+                     </h1>
+         
+                     
+         
+                     <ThemeProvider theme={defaultButton}>
+                       <Link style={{color: 'white', width: "100%"}} to="/cart">
+                         <Button  variant="contained" sx={{marginTop: 1 ,width: "100%"}}>
+                           Add to Cart
+                           <ArrowForwardIosIcon />
+                         </Button>
+                       </Link>
+                     </ThemeProvider>
+                 </Grid>
+             </Grid>
+            )}
+            </div>
+            )}
+        
+        </div>
+        
+        
+
+       
     )
 }

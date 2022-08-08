@@ -15,7 +15,7 @@ import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import Model  from './components/Model.jsx'
 
-import {getDatabase, set, ref, update, onValue, get,child, push} from "firebase/database";
+import {getDatabase, set, ref , update, onValue, get,child, push} from "firebase/database";
 import {database} from "./firebase"
 import { useAuth } from "./AuthContext.js"
 import { DstAlphaFactor } from 'three';
@@ -64,27 +64,32 @@ export default function CarConfig()
     async function handleSubmitConfig(e){
         
       try{
-          push(ref((database, '/users/' + user.uid + '/SavedCars/')), {
+        push(ref(database, '/users/' + user.uid + '/SavedCars/'), {
               
-              Name:carName,
-              Price:carPrice,
-              Color:modelColor,
-              WheelClr:wheelClr
-      
-             })
-              .then(() => {
-                  // Data saved successfully!
-                  alert('Car Saved Successfully');
-      
-              })
-              .catch((error) => {
-                  // The write failed...
-                  alert(error);
-              });
+          Name:carName,
+          Price:carPrice,
+          Color:modelColor,
+          WheelClr:wheelClr
+  
+         })
+          .then(() => {
+              // Data saved successfully!
+              alert('Car Saved Successfully');
+  
+          })
+          .catch((error) => {
+              // The write failed...
+              alert(error);
+          });
       }
       catch{
-    
+
       }
+          
+      
+      
+        
+      
     }
 
 
