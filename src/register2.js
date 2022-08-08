@@ -8,17 +8,25 @@ import { ThemeProvider } from '@mui/material/styles';
 import { IconButton, InputAdornment, Box, Button, TextField } from '@mui/material';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import {getDatabase, set, ref, update} from "firebase/database";
+import {database} from "./firebase"
+
 
 export default function Signup() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
+  const address = useRef()
   const { signup } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
+  const {getCurrentUser} = useAuth()
   
+  const firstName = useRef()
+  const lastName = useRef()
+  const DOB = useRef()
   
   async function handleSubmit(e) {
     e.preventDefault()
@@ -27,21 +35,45 @@ export default function Signup() {
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
        
       return setError("Passwords do not match")
+      
     }
 
     try {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      console.log(emailRef.current.value)
+
+      const user =getCurrentUser()
       
-      navigate('/SuperSimple3444')
+      set(ref(database, 'users/' + user.uid), {
+        email: emailRef.current.value,
+        firstName: firstName.current.value,
+        lastName: lastName.current.value,
+        DOB: DOB.current.value,
+        address: address.current.value
+
+       })
+        .then(() => {
+            // Data saved successfully!
+            alert('user created successfully');
+
+        })
+        .catch((error) => {
+            // The write failed...
+            alert(error);
+        });
+ 
     } catch {
-      setError("Failed to create an account")
+      
+      
+      
     }
 
     setLoading(false)
+    
   }
+ 
+  
   async function handleClickShowPassword(e)
   {
     setShowPassword(!showPassword)
@@ -103,6 +135,23 @@ export default function Signup() {
         
       </Form.Group>
 
+      <Form.Group id = "firstName">
+        <StyledTextField label="First Name" variant="filled" type="firstName" inputRef={firstName} required></StyledTextField>
+      </Form.Group>
+      
+      <Form.Group id = "lastName">
+       <StyledTextField label="Last Name" variant="filled" type="lastName" inputRef={lastName} required></StyledTextField>
+      </Form.Group>
+
+      <Form.Group id = "Address">
+       <StyledTextField label="Address" variant="filled" type="Address" inputRef={address} required></StyledTextField>
+      </Form.Group>
+
+      <Form.Group id = "DOB">
+       <StyledTextField label="Date of Birth" variant="filled" type="DOB" inputRef={DOB} required></StyledTextField>
+      </Form.Group>
+
+     
       <ThemeProvider theme={defaultButton}>
          <Button  disabled={loading} sx={{ width: 400 }} variant="contained" id = "register" type = "submit">
            Sign Up

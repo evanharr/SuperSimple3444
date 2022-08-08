@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
   
     function signup(email, password) {
       return createUserWithEmailAndPassword(auth,email, password)
+      
     }
     
     function login(email, password) {
@@ -44,13 +45,13 @@ export function AuthProvider({ children }) {
     }
   
     function updateUserPassword(password) {
-      return updatePassword(password)
+      return updatePassword(currentUser,password)
     }
 
     function getCurrentUser()
     {
-        let user = auth.firebase.auth().currentUser
-        return user
+       let user = auth.currentUser
+       return user
     }
   
     useEffect(() => {
@@ -69,7 +70,10 @@ export function AuthProvider({ children }) {
       logout,
       resetPassword,
       updateEmail,
-      updatePassword
+      updatePassword,
+      getCurrentUser,
+      updateUserEmail,
+      updateUserPassword
     }
   
     return (

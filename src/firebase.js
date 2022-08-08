@@ -6,6 +6,7 @@
      signInWithEmailAndPassword,
      signOut
  } from "firebase/auth";
+ import {getDatabase, set, ref, update} from "firebase/database";
 
 
  const firebaseConfig = {
@@ -22,4 +23,5 @@
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const database = getDatabase(app);
 export default app

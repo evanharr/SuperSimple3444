@@ -69,11 +69,7 @@ export const StyledRadio = styled(Radio)({
   '&, &..Mui-checked': {
     color: 'blue',
   },
-
 })
-
-
-
 //Sets textfield to white
 export const StyledTextField = styled(TextField)({
     align:'center',
