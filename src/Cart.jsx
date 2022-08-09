@@ -5,8 +5,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TrimPic from './Images/Trim.png'
-import { Button, Link } from "@mui/material";
+import { Button } from "@mui/material";
 import { StyledTypography } from "./Styles/MUIStyle";
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
@@ -104,7 +105,7 @@ function Cart (){
                 alignItems:'center',
                 
             }} >
-                <Button variant ='contained' style={{background:'#00853E', color:'white' }} href='/checkout'>Checkout</Button>
+                <Link style={{color: 'white'}} to="/checkout"><Button variant ='contained' style={{background:'#00853E', color:'white' }}>Checkout</Button></Link>
                </Accordion>
         </div>
     )

@@ -53,7 +53,7 @@ import {database} from "./firebase"
             display: 'flex',
             flexDirection: 'column',
             alignItems:"center"}}>
-            <h1 className='Edit'>Edit Name</h1>
+            <h1 className='boldText'>Edit Name</h1>
             
             <Form onSubmit={handleSubmit}>
           <Form.Group id="newFirstName">

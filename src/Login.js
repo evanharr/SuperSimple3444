@@ -47,7 +47,7 @@ export default function Login() {
         display: 'flex',
         flexDirection: 'column',
         alignItems:"center"}}>
-        <h1 className='signIn'>Login</h1>
+        <h1 className='boldText'>Login</h1>
         
         <Form onSubmit={handleSubmit}>
       <Form.Group id="email">
