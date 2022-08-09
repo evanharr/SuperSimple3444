@@ -13,14 +13,15 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-import Model  from './components/Model.jsx'
+import Model  from './components/Mazda.jsx'
+import Toyota from './components/LandCruiser.jsx'
 
 import {getDatabase, set, ref , update, onValue, get,child, push} from "firebase/database";
 import {database} from "./firebase"
 import { useAuth } from "./AuthContext.js"
 import { DstAlphaFactor } from 'three';
 
-
+//Change <Model> to <Toyota> to change to other model
 function Scene(props) {
   return (
     <>
@@ -28,6 +29,7 @@ function Scene(props) {
       <directionalLight color={"white"}/>
       <OrbitControls maxDistance={18} minDistance={13}/>
       <Model color={props.color} wheelColor={props.wheelColor}/>
+      
     </>
   )
 }
@@ -225,4 +227,3 @@ export default function CarConfig()
     </Grid>
     )
 }
-

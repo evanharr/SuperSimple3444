@@ -4,6 +4,7 @@ import './Styles/style.css'
 import {VehicleButton, BoldTab } from './Styles/MUIStyle.js'
 import PropTypes from 'prop-types';
 import TrimPic from './Images/Trim.png'
+import LandCruiser from './Images/LandCruiserTrim.png'
 import { Link } from 'react-router-dom'
 
 //Returns entry for each vehicle that goes on page
@@ -84,9 +85,6 @@ export default function Vehicles(){
             style={{padding:50}}
             >
               <VehicleEntry/>
-              <VehicleEntry/>
-              <VehicleEntry/>
-              <VehicleEntry/>
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={1}>
@@ -98,8 +96,15 @@ export default function Vehicles(){
             spacing={20}
             style={{padding:50}}
             >
-              <VehicleEntry/>
-              <VehicleEntry/>
+              <Grid item xs="auto">
+              <Link style={{color: 'white'}} to="/car-configuration">
+                <VehicleButton sx={{ display: 'grid'}} alt="Car button" longdesc= "Button to open build page of [CAR MODEL]"> 
+                  <img src={LandCruiser}></img>
+                  <p>Car Example</p>
+                  <p>$100,000 Starting MSRP*</p>
+                </VehicleButton>
+              </Link>
+              </Grid>
              </Grid>
           </TabPanel>
           <TabPanel value={value} index={2}>
