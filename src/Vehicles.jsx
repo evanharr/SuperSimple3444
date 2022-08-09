@@ -97,7 +97,7 @@ export default function Vehicles(){
             style={{padding:50}}
             >
               <Grid item xs="auto">
-              <Link style={{color: 'white'}} to="/car-configuration">
+              <Link style={{color: 'white'}} to="/LandCruiserConfig">
                 <VehicleButton sx={{ display: 'grid'}} alt="Car button" longdesc= "Button to open build page of [CAR MODEL]"> 
                   <img src={LandCruiser}></img>
                   <p>Car Example</p>

@@ -9,11 +9,13 @@ import Cart from './Cart'
 import Checkout from './Checkout'
 import CarConfig from './CarConfig'
 import SavedCarConfig from './SavedCarConfig'
+import LandCruiserConfig from './LandCruiserConfig'
 import { AuthProvider } from "./AuthContext"
 
 import Register from "./register2"
 function App() {
   return(
+    
   <div>
     <HashRouter>
     <AuthProvider>
@@ -28,7 +30,7 @@ function App() {
           <Route path="/car-configuration" element={<CarConfig />}></Route>
           <Route path="/register2" element={<Register />}></Route>
           <Route path="/account-info/SavedCarConfig" element={<SavedCarConfig />}></Route>
-
+          <Route path="/LandCruiserConfig" element={<LandCruiserConfig />}></Route>
           
       </Routes>
       
