@@ -25,6 +25,26 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Car Website</title>
+    <style>
+      body {
+       
+        background-color: #211D1D;
+        color: black;
+      }
+      .dark-mode {
+        background-color: #211D1D;
+        color: white;
+      }
+      .light-mode {
+        background-color: white;
+        color: black;
+      }
+      .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    </style>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License
@@ -49,8 +69,13 @@
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
   </head>
-  <body style="background-color: #211D1D">
-    
+  <div class="center">
+    <button class ='dark-mode' onclick="darkMode()">Darkmode</button>
+    <button class ='dark-mode' onclick="lightMode()">LightMode</button>
+    </div>
+  <body >
+
+    <!-- style="background-color: #211D1D" -->
     <div id="root"></div>
     <div id="portal"></div>
     <!--
@@ -63,5 +88,21 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script>
+      function darkMode() {
+        var element = document.body;
+        var content = document.getElementById("DarkModetext");
+        element.className = "dark-mode";
+        content.innerText = "Dark Mode is ON";
+      }
+      function lightMode() {
+        var element = document.body;
+        var content = document.getElementById("DarkModetext");
+        element.className = "light-mode";
+        content.innerText = "Dark Mode is OFF";
+      }
+    </script>
   </body>
+
 </html>
