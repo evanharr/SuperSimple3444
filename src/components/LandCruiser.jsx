@@ -3,17 +3,132 @@ import LandCruiser from '../3d/LandCruiser.glb'
 import { useGLTF, useTexture } from "@react-three/drei";
 
 export default function Model(props) {
-    const { nodes, materials } = useGLTF(LandCruiser);
-    const paintColor = props.color;
-    const wheelColor = props.wheelColor;
-    return (
-      <mesh scale={4}>
-      <group {...props} dispose={null}>
-        <group position={[0, 0.41, -1.49]} scale={0.01}>
+  const { nodes, materials } = useGLTF(LandCruiser);
+  const paintColor = props.color;
+  const wheelColor = props.wheelColor;
+  return (
+    <mesh scale={4}>
+    <group {...props} dispose={null}>
+      <group position={[0, 0.41, -1.49]} scale={0.01}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001.geometry}
+          material={materials.Paint}
+        >
+           <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_1.geometry}
+          material={materials.BrownInterior}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_2.geometry}
+          material={materials.WhiteInterior}
+        ></mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_3.geometry}
+          material={materials.GrayInterior}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_4.geometry}
+          material={materials.Screen}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_5.geometry}
+          material={materials.WoodPanel}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_6.geometry}
+          material={materials.Chrome2}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_7.geometry}
+          material={materials.BlackMatt}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_8.geometry}
+          material={materials.Chrome1}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_9.geometry}
+          material={materials.Signal}
+        >
+          <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_10.geometry}
+          material={materials.DRL}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_11.geometry}
+          material={materials.Headlight}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_12.geometry}
+          material={materials.BrakeLight}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_13.geometry}
+          material={materials.RedChrome}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_14.geometry}
+          material={materials.HeadlightGlass}
+        >
+          <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.fullsize_body001_15.geometry}
+          material={materials.RedGlass}
+        />
+        <group position={[0.73, -27, 149.32]}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001.geometry}
+            geometry={nodes.fullsize_bumper_F001.geometry}
+            material={materials.BlackMatt}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_F001_1.geometry}
+            material={materials.DRL}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_F001_2.geometry}
             material={materials.Paint}
           >
              <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
@@ -21,87 +136,35 @@ export default function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001_1.geometry}
-            material={materials.BrownInterior}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_2.geometry}
-            material={materials.WhiteInterior}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_3.geometry}
-            material={materials.GrayInterior}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_4.geometry}
-            material={materials.Screen}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_5.geometry}
-            material={materials.WoodPanel}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_6.geometry}
+            geometry={nodes.fullsize_bumper_F001_3.geometry}
             material={materials.Chrome2}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001_7.geometry}
-            material={materials.BlackMatt}
+            geometry={nodes.fullsize_bumper_F001_4.geometry}
+            material={materials.NumberPlate}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001_8.geometry}
-            material={materials.Chrome1}
+            geometry={nodes.fullsize_bumper_F001_5.geometry}
+            material={materials.GrayInterior}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001_9.geometry}
-            material={materials.Signal}
+            geometry={nodes.fullsize_bumper_F001_6.geometry}
+            material={materials.HeadlightGlass}
           >
             <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
           </mesh>
+        </group>
+        <group position={[0.73, -27, 149.32]}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001_10.geometry}
-            material={materials.DRL}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_11.geometry}
-            material={materials.Headlight}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_12.geometry}
-            material={materials.BrakeLight}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_13.geometry}
-            material={materials.RedChrome}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.fullsize_body001_14.geometry}
+            geometry={nodes.fullsize_door_FL001.geometry}
             material={materials.HeadlightGlass}
           >
             <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
@@ -109,696 +172,633 @@ export default function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.fullsize_body001_15.geometry}
-            material={materials.RedGlass}
+            geometry={nodes.fullsize_door_FL001_1.geometry}
+            material={materials.BrownInterior}
           />
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001_1.geometry}
-              material={materials.DRL}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001_2.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001_3.geometry}
-              material={materials.Chrome2}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001_4.geometry}
-              material={materials.NumberPlate}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001_5.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_F001_6.geometry}
-              material={materials.HeadlightGlass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001.geometry}
-              material={materials.HeadlightGlass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_1.geometry}
-              material={materials.BrownInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_2.geometry}
-              material={materials.WhiteInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_3.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_4.geometry}
-              material={materials.WoodPanel}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_5.geometry}
-              material={materials.Chrome2}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_6.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_7.geometry}
-              material={materials.Signal}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_8.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FL001_9.geometry}
-              material={materials.Glass}
-            >
-              <meshStandardMaterial opacity={0.01} transparent={true}></meshStandardMaterial>
-            </mesh>
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001.geometry}
-              material={materials.HeadlightGlass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_1.geometry}
-              material={materials.BrownInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_2.geometry}
-              material={materials.WhiteInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_3.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_4.geometry}
-              material={materials.WoodPanel}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_5.geometry}
-              material={materials.Chrome2}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_6.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_7.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_8.geometry}
-              material={materials.Glass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_FR001_9.geometry}
-              material={materials.Signal}
-            />
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_hood001.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_hood001_1.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_R001.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_R001_1.geometry}
-              material={materials.RedChrome}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_R001_2.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_R001_3.geometry}
-              material={materials.BlackGloss}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_R001_4.geometry}
-              material={materials.BrakeLight}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_bumper_R001_5.geometry}
-              material={materials.RedGlass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001.geometry}
-              material={materials.BrownInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_1.geometry}
-              material={materials.WhiteInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_2.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_3.geometry}
-              material={materials.WoodPanel}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_4.geometry}
-              material={materials.Chrome2}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_5.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_6.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RL001_7.geometry}
-              material={materials.Glass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001.geometry}
-              material={materials.BrownInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_1.geometry}
-              material={materials.WhiteInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_2.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_3.geometry}
-              material={materials.WoodPanel}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_4.geometry}
-              material={materials.Chrome2}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_5.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_6.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_door_RR001_7.geometry}
-              material={materials.Glass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-          </group>
-          <group
-            position={[46.42, 76.45, 202.35]}
-            rotation={[-1.34, 0, 0]}
-            scale={1.03}
-          >
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_steer001.geometry}
-              material={materials.BrownInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_steer001_1.geometry}
-              material={materials.WhiteInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_steer001_2.geometry}
-              material={materials.GrayInterior}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_steer001_3.geometry}
-              material={materials.WoodPanel}
-            />
-          </group>
-          <group position={[0.73, -27, 149.32]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001.geometry}
-              material={materials.HeadlightGlass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_1.geometry}
-              material={materials.Chrome2}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_2.geometry}
-              material={materials.BlackMatt}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_3.geometry}
-              material={materials.DRL}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_4.geometry}
-              material={materials.BrakeLight}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_5.geometry}
-              material={materials.RedChrome}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_6.geometry}
-              material={materials.Paint}
-            >
-               <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_7.geometry}
-              material={materials.BlackGloss}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_8.geometry}
-              material={materials.Taillight}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_9.geometry}
-              material={materials.NumberPlate}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_10.geometry}
-              material={materials.Glass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.fullsize_trunk001_11.geometry}
-              material={materials.RedGlass}
-            >
-              <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
-            </mesh>
-          </group>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.LCVXRWindows.geometry}
+            geometry={nodes.fullsize_door_FL001_2.geometry}
+            material={materials.WhiteInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_3.geometry}
+            material={materials.GrayInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_4.geometry}
+            material={materials.WoodPanel}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_5.geometry}
+            material={materials.Chrome2}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_6.geometry}
+            material={materials.BlackMatt}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_7.geometry}
+            material={materials.Signal}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_8.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FL001_9.geometry}
             material={materials.Glass}
-            position={[0.73, -27, 149.32]}
+          >
+            <meshStandardMaterial opacity={0.01} transparent={true}></meshStandardMaterial>
+          </mesh>
+        </group>
+        <group position={[0.73, -27, 149.32]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001.geometry}
+            material={materials.HeadlightGlass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_1.geometry}
+            material={materials.BrownInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_2.geometry}
+            material={materials.WhiteInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_3.geometry}
+            material={materials.GrayInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_4.geometry}
+            material={materials.WoodPanel}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_5.geometry}
+            material={materials.Chrome2}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_6.geometry}
+            material={materials.BlackMatt}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_7.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_8.geometry}
+            material={materials.Glass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_FR001_9.geometry}
+            material={materials.Signal}
+          />
+        </group>
+        <group position={[0.73, -27, 149.32]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_hood001.geometry}
+            material={materials.GrayInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_hood001_1.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+        </group>
+        <group position={[0.73, -27, 149.32]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_R001.geometry}
+            material={materials.BlackMatt}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_R001_1.geometry}
+            material={materials.RedChrome}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_R001_2.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_R001_3.geometry}
+            material={materials.BlackGloss}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_R001_4.geometry}
+            material={materials.BrakeLight}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_bumper_R001_5.geometry}
+            material={materials.RedGlass}
           >
             <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
           </mesh>
         </group>
-        <group position={[0.81, 0.41, 1.45]} scale={0.01}>
+        <group position={[0.73, -27, 149.32]}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL001.geometry}
-            material={materials.BlackMatt}
+            geometry={nodes.fullsize_door_RL001.geometry}
+            material={materials.BrownInterior}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL001_1.geometry}
+            geometry={nodes.fullsize_door_RL001_1.geometry}
+            material={materials.WhiteInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RL001_2.geometry}
+            material={materials.GrayInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RL001_3.geometry}
+            material={materials.WoodPanel}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RL001_4.geometry}
             material={materials.Chrome2}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL001_2.geometry}
-            material={materials.Rims}
-          >
-             <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL001_3.geometry}
-            material={materials.Tire}
-          >
-            <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL001_4.geometry}
-            material={materials["Brake Disc"]}
+            geometry={nodes.fullsize_door_RL001_5.geometry}
+            material={materials.BlackMatt}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL001_5.geometry}
-            material={materials.Rust}
-          />
+            geometry={nodes.fullsize_door_RL001_6.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RL001_7.geometry}
+            material={materials.Glass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
         </group>
-        <group position={[0.81, 0.41, -1.49]} scale={0.01}>
+        <group position={[0.73, -27, 149.32]}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL003.geometry}
-            material={materials.BlackMatt}
+            geometry={nodes.fullsize_door_RR001.geometry}
+            material={materials.BrownInterior}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL003_1.geometry}
+            geometry={nodes.fullsize_door_RR001_1.geometry}
+            material={materials.WhiteInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RR001_2.geometry}
+            material={materials.GrayInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RR001_3.geometry}
+            material={materials.WoodPanel}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RR001_4.geometry}
             material={materials.Chrome2}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL003_2.geometry}
-            material={materials.Rims}
-          >
-             <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL003_3.geometry}
-            material={materials.Tire}
-          >
-            <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL003_4.geometry}
-            material={materials["Brake Disc"]}
+            geometry={nodes.fullsize_door_RR001_5.geometry}
+            material={materials.BlackMatt}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL003_5.geometry}
-            material={materials.Rust}
-          />
+            geometry={nodes.fullsize_door_RR001_6.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_door_RR001_7.geometry}
+            material={materials.Glass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
         </group>
         <group
-          position={[-0.81, 0.41, 1.45]}
-          rotation={[-Math.PI, 0, 0]}
-          scale={-0.01}
+          position={[46.42, 76.45, 202.35]}
+          rotation={[-1.34, 0, 0]}
+          scale={1.03}
         >
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL004.geometry}
-            material={materials.BlackMatt}
+            geometry={nodes.fullsize_steer001.geometry}
+            material={materials.BrownInterior}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL004_1.geometry}
+            geometry={nodes.fullsize_steer001_1.geometry}
+            material={materials.WhiteInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_steer001_2.geometry}
+            material={materials.GrayInterior}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_steer001_3.geometry}
+            material={materials.WoodPanel}
+          />
+        </group>
+        <group position={[0.73, -27, 149.32]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001.geometry}
+            material={materials.HeadlightGlass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_1.geometry}
             material={materials.Chrome2}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL004_2.geometry}
-            material={materials.Rims}
-          >
-             <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL004_3.geometry}
-            material={materials.Tire}
-          >
-            <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL004_4.geometry}
-            material={materials["Brake Disc"]}
+            geometry={nodes.fullsize_trunk001_2.geometry}
+            material={materials.BlackMatt}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL004_5.geometry}
-            material={materials.Rust}
+            geometry={nodes.fullsize_trunk001_3.geometry}
+            material={materials.DRL}
           />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_4.geometry}
+            material={materials.BrakeLight}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_5.geometry}
+            material={materials.RedChrome}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_6.geometry}
+            material={materials.Paint}
+          >
+             <meshStandardMaterial color={paintColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_7.geometry}
+            material={materials.BlackGloss}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_8.geometry}
+            material={materials.Taillight}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_9.geometry}
+            material={materials.NumberPlate}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_10.geometry}
+            material={materials.Glass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.fullsize_trunk001_11.geometry}
+            material={materials.RedGlass}
+          >
+            <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+          </mesh>
         </group>
-        <group
-          position={[-0.81, 0.41, -1.49]}
-          rotation={[-Math.PI, 0, 0]}
-          scale={-0.01}
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.LCVXRWindows.geometry}
+          material={materials.Glass}
+          position={[0.73, -27, 149.32]}
         >
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL005.geometry}
-            material={materials.BlackMatt}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL005_1.geometry}
-            material={materials.Chrome2}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL005_2.geometry}
-            material={materials.Rims}
-          >
-             <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL005_3.geometry}
-            material={materials.Tire}
-          >
-            <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
-          </mesh>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL005_4.geometry}
-            material={materials["Brake Disc"]}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.wheel_03a_16x9_FL005_5.geometry}
-            material={materials.Rust}
-          />
-        </group>
+          <meshStandardMaterial opacity={0.1} transparent={true}></meshStandardMaterial>
+        </mesh>
+      </group>
+      <group position={[0.81, 0.41, 1.45]} scale={0.01}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.LCVXRWheelBrakeFtL.geometry}
-          material={materials.BrakeCaliper}
-          position={[0.83, 0.41, 1.45]}
-          rotation={[1.59, 0, -Math.PI / 2]}
-          scale={1.04}
+          geometry={nodes.wheel_03a_16x9_FL001.geometry}
+          material={materials.BlackMatt}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.LCVXRWheelBrakeBkL.geometry}
-          material={materials.BrakeCaliper}
-          position={[0.85, 0.41, -1.49]}
-          rotation={[-1.57, 0, -Math.PI / 2]}
-          scale={1.04}
+          geometry={nodes.wheel_03a_16x9_FL001_1.geometry}
+          material={materials.Chrome2}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.LCVXRWheelBrakeFtR.geometry}
-          material={materials.BrakeCaliper}
-          position={[-0.83, 0.41, 1.45]}
-          rotation={[-1.56, 0, -Math.PI / 2]}
-          scale={-1.04}
+          geometry={nodes.wheel_03a_16x9_FL001_2.geometry}
+          material={materials.Rims}
+        >
+           <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL001_3.geometry}
+          material={materials.Tire}
+        >
+          <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL001_4.geometry}
+          material={materials["Brake Disc"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.LCVXRWheelBrakeBkR.geometry}
-          material={materials.BrakeCaliper}
-          position={[-0.85, 0.41, -1.49]}
-          rotation={[1.57, 0, -Math.PI / 2]}
-          scale={-1.04}
+          geometry={nodes.wheel_03a_16x9_FL001_5.geometry}
+          material={materials.Rust}
         />
       </group>
-      </mesh>
-    );
-  }
+      <group position={[0.81, 0.41, -1.49]} scale={0.01}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL003.geometry}
+          material={materials.BlackMatt}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL003_1.geometry}
+          material={materials.Chrome2}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL003_2.geometry}
+          material={materials.Rims}
+        >
+           <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL003_3.geometry}
+          material={materials.Tire}
+        >
+          <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL003_4.geometry}
+          material={materials["Brake Disc"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL003_5.geometry}
+          material={materials.Rust}
+        />
+      </group>
+      <group
+        position={[-0.81, 0.41, 1.45]}
+        rotation={[-Math.PI, 0, 0]}
+        scale={-0.01}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL004.geometry}
+          material={materials.BlackMatt}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL004_1.geometry}
+          material={materials.Chrome2}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL004_2.geometry}
+          material={materials.Rims}
+        >
+           <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL004_3.geometry}
+          material={materials.Tire}
+        >
+          <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL004_4.geometry}
+          material={materials["Brake Disc"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL004_5.geometry}
+          material={materials.Rust}
+        />
+      </group>
+      <group
+        position={[-0.81, 0.41, -1.49]}
+        rotation={[-Math.PI, 0, 0]}
+        scale={-0.01}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL005.geometry}
+          material={materials.BlackMatt}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL005_1.geometry}
+          material={materials.Chrome2}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL005_2.geometry}
+          material={materials.Rims}
+        >
+           <meshStandardMaterial color={wheelColor} metalness={0.6} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL005_3.geometry}
+          material={materials.Tire}
+        >
+          <meshStandardMaterial color={"black"} roughness={0.4}></meshStandardMaterial>
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL005_4.geometry}
+          material={materials["Brake Disc"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.wheel_03a_16x9_FL005_5.geometry}
+          material={materials.Rust}
+        />
+      </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.LCVXRWheelBrakeFtL.geometry}
+        material={materials.BrakeCaliper}
+        position={[0.83, 0.41, 1.45]}
+        rotation={[1.59, 0, -Math.PI / 2]}
+        scale={1.04}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.LCVXRWheelBrakeBkL.geometry}
+        material={materials.BrakeCaliper}
+        position={[0.85, 0.41, -1.49]}
+        rotation={[-1.57, 0, -Math.PI / 2]}
+        scale={1.04}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.LCVXRWheelBrakeFtR.geometry}
+        material={materials.BrakeCaliper}
+        position={[-0.83, 0.41, 1.45]}
+        rotation={[-1.56, 0, -Math.PI / 2]}
+        scale={-1.04}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.LCVXRWheelBrakeBkR.geometry}
+        material={materials.BrakeCaliper}
+        position={[-0.85, 0.41, -1.49]}
+        rotation={[1.57, 0, -Math.PI / 2]}
+        scale={-1.04}
+      />
+    </group>
+    </mesh>
+  );
+}
 
-  useGLTF.preload("/LandCruiser.glb");
+useGLTF.preload("/LandCruiser.glb");

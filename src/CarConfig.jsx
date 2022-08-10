@@ -20,6 +20,7 @@ import {getDatabase, set, ref , update, onValue, get,child, push} from "firebase
 import {database} from "./firebase"
 import { useAuth } from "./AuthContext.js"
 import { DstAlphaFactor } from 'three';
+import { isValidFormat } from '@firebase/util';
 
 //Change <Model> to <Toyota> to change to other model
 function Scene(props) {

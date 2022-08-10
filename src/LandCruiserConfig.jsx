@@ -6,31 +6,32 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ThreeSixtyIcon from '@mui/icons-material/ThreeSixty';
+import CameraswitchIcon from '@mui/icons-material/Cameraswitch';
 import './Styles/style.css'
 import { defaultButton, StyledAccordion, StyledRadio } from './Styles/MUIStyle.js'
 import { ThemeProvider } from '@mui/material/styles';
 
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { OrbitControls } from "@react-three/drei";
+import {  OrbitControls } from "@react-three/drei";
 import Model  from './components/Mazda.jsx'
 import Toyota from './components/LandCruiser.jsx'
 
 import {getDatabase, set, ref , update, onValue, get,child, push} from "firebase/database";
 import {database} from "./firebase"
 import { useAuth } from "./AuthContext.js"
-import { DstAlphaFactor } from 'three';
 
 //Change <Model> to <Toyota> to change to other model
 function Scene(props) {
   return (
-    <>
-      <ambientLight intensity={0.1} />
-      <directionalLight color={"white"}/>
-      <OrbitControls maxDistance={18} minDistance={13}/>
-      <Toyota color={props.color} wheelColor={props.wheelColor}/>
-      
-    </>
+    <Canvas>
+      <Suspense fallback={null}>
+        <ambientLight intensity={0.1} />
+        <directionalLight color={"white"}/>
+        <OrbitControls maxDistance={16} minDistance={12}/>
+        <Toyota color={props.color} wheelColor={props.wheelColor}/>
+      </Suspense>
+    </Canvas>
   )
 }
 
@@ -116,18 +117,15 @@ export default function CarConfig()
           
           {/*3d Model*/}
           <Grid item xs={10}>
-            <Canvas>
-             <Suspense fallback={null}>
-                 <Scene color={modelColor} wheelColor={wheelClr}/>
-             </Suspense>
-            </Canvas>
+            <Scene color={modelColor} wheelColor={wheelClr}/>
             <ThreeSixtyIcon fontSize='large' sx={{position: 'absolute', left: '35%', color:'white'}}/>
           </Grid>
         </Grid>
         
 
         <Grid item xs={1} sx={{color: 'white', whiteSpace: 'nowrap'}}>
-          <Typography sx={{left:20, position: 'relative', display: "inline", fontWeight: 700, fontSize: 24}}>{carName}</Typography>
+          
+          <Typography sx={{left:20, position: 'relative', fontWeight: 700, fontSize: 24}}>{carName}</Typography>
           <Typography sx={{left:20, position: 'relative', fontSize: 20}}>MSRP: ${carPrice}</Typography>
         </Grid>
 
@@ -212,7 +210,6 @@ export default function CarConfig()
             </StyledAccordion>
 
             <ThemeProvider theme={defaultButton}>
-
               <Button variant="contained" sx={{width: "100%", marginTop: 1}} onClick= {() =>{handleSubmitConfig()}}>
                 Save Configuration
               </Button> 
