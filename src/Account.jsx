@@ -194,7 +194,7 @@ function Account (){
                     
                 )}
                 {!payInfoExists && (
-                    <Button style={{color:'#00853E'}} onClick={() => {setAddPaymentOpen(true)}}>Add Payment Information</Button>
+                    <Button style={{color:'white'}} onClick={() => {setAddPaymentOpen(true)}}>Add Payment Information</Button>
                 )}
                 
                 
@@ -202,7 +202,7 @@ function Account (){
                 <Grid item paddingTop='20px'>
                    <Typography variant="h4" color='white'>Vehicle Configuration</Typography>
                    </Grid>
-                   <Button style={{color:'#00853E'}} onClick={() => {navigateToSavedCarConfig()}}>View Saved Vehicle Configurations</Button>
+                   <Button style={{color:'white'}} onClick={() => {navigateToSavedCarConfig()}}>View Saved Vehicle Configurations</Button>
                
                 
 
