@@ -71,7 +71,7 @@ import {database} from "./firebase"
             display: 'flex',
             flexDirection: 'column',
             alignItems:"center"}}>
-            <h1 className='registerInfo'>Register</h1>
+            <h1 className='boldText'>Register</h1>
             
             <Form onSubmit={handleSubmit}>
           <Form.Group id="email">

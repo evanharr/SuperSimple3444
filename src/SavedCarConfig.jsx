@@ -13,7 +13,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-import Model  from './components/Model.jsx'
+import Model  from './components/Mazda.jsx'
 
 //import Auth and Database
 import {getDatabase, set, ref, update, onValue, get,child, push} from "firebase/database";

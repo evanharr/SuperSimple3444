@@ -108,7 +108,7 @@ function Account (){
             sx={{
                 flexGrow: '1',
                 position: 'absolute',
-                top: '80%',
+                top: '55%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: 600,
@@ -124,49 +124,47 @@ function Account (){
                 alignItems='center'
                 >
                 
-                <Grid item paddingTop='20px'>
-                   <Typography variant="h4" color='white'>Account Information</Typography>
+                <Grid item paddingTop='10px'>
+                   <Typography variant="h3" color='white'>Account Information</Typography>  
+                </Grid>
+                <Grid item paddingTop='10px'>
+                   <Typography variant="h6" color='white'>Click the Field you wish to edit</Typography>  
                 </Grid>
                 
-                
                 <Grid paddingTop='10px'>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={30} alignItems='center' justifyContent='flex-start'>
-                           <p>Name:<br></br>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'onClick={() => {setEditNameOpen(true)}}>
+                         
+                           <p >Name:<br></br>
                            {firstName} &nbsp;
                            {lastName}
                            
                            </p>
                            
                            
-                           
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}  onClick={() => {setEditNameOpen(true)}}>Edit</Button>
                         
-                            </Stack> 
+                            
                     </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={30} alignItems='center'justifyContent='flex-start'>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined' onClick={() => {setEditEmailOpen(true)}}>
+                          
                             <p>Email Address:<br></br>{email}</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}} onClick={() => {setEditEmailOpen(true)}}>Edit</Button>
-                            </Stack> 
+                         
+                            
                     </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={30} alignItems='center'justifyContent='flex-start'>
-                            <p>Address<br></br>{address}</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}}  onClick={() => {setEditAddressOpen(true)}}>Edit</Button>
-                            </Stack> 
+                    <StyledPaper sx={{p: '10px'}} variant='outlined' onClick={() => {setEditAddressOpen(true)}}>
+ 
+                            <p>Address:<br></br>{address}</p>
+
                     </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
-                           <Stack direction="row" spacing={30} alignItems='center'justifyContent='flex-start'>
-                            <p>Date of Birth<br></br>{DOB}</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}} onClick={() => {setEditDOBOpen(true)}}>Edit</Button>
-                            </Stack> 
+                    <StyledPaper sx={{p: '10px'}} variant='outlined' onClick={() => {setEditDOBOpen(true)}}>
+                           
+                            <p>Date of Birth:<br></br>{DOB}</p>
+
                     </StyledPaper>
-                    <StyledPaper sx={{p: '10px'}} variant='outlined'>
+                    <StyledPaper sx={{p: '10px'}} variant='outlined'onClick={() => {setEditPasswordOpen(true)}}>
                            <Stack direction="row" spacing={30} alignItems='center'justifyContent='flex-start'>
                             <p>Password:<br></br>******</p>
-                            <Button variant='contained' size='small' style={{background:"#00853E"}} onClick={() => {setEditPasswordOpen(true)}}>Edit</Button>
-                            </Stack> 
+                            <Button></Button>
+                            </Stack>
                     </StyledPaper>
                     
                 </Grid>
@@ -196,7 +194,7 @@ function Account (){
                     
                 )}
                 {!payInfoExists && (
-                    <Button style={{color:'#00853E'}} onClick={() => {setAddPaymentOpen(true)}}>Add Payment Information</Button>
+                    <Button style={{color:'white'}} onClick={() => {setAddPaymentOpen(true)}}>Add Payment Information</Button>
                 )}
                 
                 
@@ -204,7 +202,7 @@ function Account (){
                 <Grid item paddingTop='20px'>
                    <Typography variant="h4" color='white'>Vehicle Configuration</Typography>
                    </Grid>
-                   <Button style={{color:'#00853E'}} onClick={() => {navigateToSavedCarConfig()}}>View Saved Vehicle Configurations</Button>
+                   <Button style={{color:'white'}} onClick={() => {navigateToSavedCarConfig()}}>View Saved Vehicle Configurations</Button>
                
                 
 

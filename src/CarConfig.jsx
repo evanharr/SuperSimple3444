@@ -13,14 +13,16 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-import Model  from './components/Model.jsx'
+import Model  from './components/Mazda.jsx'
+import Toyota from './components/LandCruiser.jsx'
 
 import {getDatabase, set, ref , update, onValue, get,child, push} from "firebase/database";
 import {database} from "./firebase"
 import { useAuth } from "./AuthContext.js"
 import { DstAlphaFactor } from 'three';
+import { isValidFormat } from '@firebase/util';
 
-
+//Change <Model> to <Toyota> to change to other model
 function Scene(props) {
   return (
     <>
@@ -28,12 +30,14 @@ function Scene(props) {
       <directionalLight color={"white"}/>
       <OrbitControls maxDistance={18} minDistance={13}/>
       <Model color={props.color} wheelColor={props.wheelColor}/>
+      
     </>
   )
 }
 
 export default function CarConfig()
 {
+
 
   const {getCurrentUser} = useAuth()
   const user = getCurrentUser()
@@ -91,8 +95,6 @@ export default function CarConfig()
         
       
     }
-
-
     return(
     <Grid container
     direction="row"
@@ -211,6 +213,7 @@ export default function CarConfig()
             </StyledAccordion>
 
             <ThemeProvider theme={defaultButton}>
+
               <Button variant="contained" sx={{width: "100%", marginTop: 1}} onClick= {() =>{handleSubmitConfig()}}>
                 Save Configuration
               </Button> 
@@ -225,4 +228,3 @@ export default function CarConfig()
     </Grid>
     )
 }
-
